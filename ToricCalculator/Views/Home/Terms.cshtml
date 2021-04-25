@@ -1,0 +1,389 @@
+﻿@{
+	Layout = "_Layout";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function () {
+		var $on = 'section';
+		$($on).css({
+			'background': 'none',
+			'border': 'none',
+			'box-shadow': 'none'
+		});
+	});
+
+	function uuidv4() {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+			var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+		});
+	}
+
+	function buttonForm(cname, cvalue, exdays) {
+		var random = uuidv4();
+		var culture = getCookie("vsyLanguage");
+		var encodded = encodeURIComponent(random);
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + encodded + ";path=/";
+		window.location.href = "Form?key=" + random + "&culture=" + culture;
+	}
+
+	function setCookieButton(cname, cvalue, exdays, deg) {
+		var encodded = encodeURIComponent(cvalue);
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + encodded + ";path=/";
+
+		if (deg.checked) {
+
+			if (getCookie("vsyLanguage") == "tr-TR") {
+				document.getElementById("buttonContinueTr").disabled = false;
+			}
+			else {
+				document.getElementById("buttonContinueEn").disabled = false;
+			}
+		}
+		else {
+			if (getCookie("vsyLanguage") == "tr-TR") {
+				document.getElementById("buttonContinueTr").disabled = true;
+			}
+			else {
+				document.getElementById("buttonContinueEn").disabled = true;
+			}
+
+		}
+	}
+
+
+	document.addEventListener("DOMContentLoaded", function (event) {
+		if (getCookie("vsyLanguage") == "tr-TR") {
+			if (document.getElementById("checkApprove").checked) {
+				document.getElementById("buttonContinueTr").disabled = false;
+			}
+			else {
+				document.getElementById("buttonContinueTr").disabled = true;
+			}
+		}
+		else {
+			if (document.getElementById("checkApprove").checked) {
+				document.getElementById("buttonContinueEn").disabled = false;
+			}
+			else {
+				document.getElementById("buttonContinueEn").disabled = true;
+			}
+		}
+	});
+
+
+	//$(function () {
+	//	if (getCookie("vsyLanguage") == "turkish") {
+	//		if (document.getElementById("checkApprove").checked) {
+	//			document.getElementById("buttonContinueTr").disabled = false;
+	//		}
+	//		else {
+	//			document.getElementById("buttonContinueTr").disabled = true;
+	//		}
+	//	}
+	//	else {
+	//		if (document.getElementById("checkApprove").checked) {
+	//			document.getElementById("buttonContinueEn").disabled = false;
+	//		}
+	//		else {
+	//			document.getElementById("buttonContinueEn").disabled = true;
+	//		}
+	//	}
+
+
+	//});
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				var cval = c.substring(name.length, c.length);
+				var decoded = decodeURIComponent(cval);
+				return decoded;
+			}
+		}
+		return "";
+	}
+</script>
+<style>
+	body {
+		background-color: #e7eaed!important;
+	}
+</style>
+@*@if (ViewBag.vsyApprove == "false")
+	{*@
+
+@if (ViewBag.vsyLanguage == "tr-TR")
+{
+<div style="background-color:white; border-radius:.82rem" class="text-center">
+
+	<div id="turkish" style=" margin: 2% 4% 2% 4%; color: #00226a;">
+		<br />
+		<br />
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style='font-family:"Calibri",serif;'>VSY BİYOTEKNOLOJİ VE İLA&Ccedil; SANAYİ A.Ş.</span></h1>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style='font-family:"Calibri",serif;'>KİŞİSEL VERİLERİN KORUNMASI HAKKINDA AYDINLATMA METNİ</span></h1>
+		<p><br></p>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;margin:0in;text-align:justify;line-height:115%;'>
+			<span style='		font-family: "Calibri",serif;
+		color: #00226a;
+		font-weight: normal;'>Acriva<sup>UD</sup> Kolay Torik Hesaplayıcı&apos;sına Hoşgeldiniz!&nbsp;</span>
+		</h1>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:Arial, Helvetica, sans-serif;font-weight:bold;margin:0in;text-align:justify;line-height:115%;'>
+			<span style='		font-family: "Calibri",serif;
+		color: #00226a;
+		font-weight: normal;'>&nbsp;</span>
+		</h1>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:Arial, Helvetica, sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><strong><span style="		color: #00226a;">VSY Biyoteknoloji ve İla&ccedil; Sanayi A.Ş.</span></strong><span style="		color: #00226a;">&nbsp;(bundan b&ouml;yle &ldquo;<strong>Şirket</strong>&rdquo; diye anılacaktır.&rdquo;) olarak &ccedil;ağrı merkezimiz ile g&ouml;r&uuml;şmeniz esnasında şirketimizce işlenen kişisel verileriniz hakkında sizleri bilgilendirmeyi hedeflemekteyiz.</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:Arial, Helvetica, sans-serif;margin-top:0in;margin-bottom:0in;line-height:115%;text-align:justify;background:white;'>
+			<strong>
+				<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",serif;
+		color: #00226a;'>&nbsp;</span>
+			</strong>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;
+'>
+			<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>Şirket<span style="		color: #00226a;">&nbsp;</span>ile ilişkiniz kapsamında&nbsp;Acriva<sup>UD</sup> Kolay Torik Hesaplayıcısı yazılımının kullanımı ve sipariş &uuml;retim planlamasının yapılması amacıyla ad soyadı, e-posta, telefon numarası, meslek bilgisi, klinik bilgisi&nbsp;verileriniz işlenmektedir. Kişisel verileriniz, KVKK&rsquo;nın kişisel verileriniz &uuml;&ccedil;&uuml;nc&uuml; kişilere aktarılmamaktadır.</span>
+		</p>
+		<p style='		margin-right: 5.95pt;
+		margin-left: 0in;
+		font-size: 16px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 7.9pt;
+		margin-bottom: .0001pt;
+		text-align: justify;
+		line-height: 115%;'>
+			<span style='		font-family: "Calibri",sans-serif;
+		color: #00226a;'>Acriva<sup>UD</sup> Kolay Torik Hesaplayıcı uygulaması s</span><span style='		font-family: "Calibri",sans-serif;'>ağlık verisi gibi &ouml;zel nitelikli verilerinizi işleme amacı taşımamakta olup, &nbsp; paylaşılan bilgiler vasıtasıyla ilgili kişilere y&ouml;nelik sağlık verisinin belirlenebilir olması halinde s&ouml;z konusu veri, şirketimizin veri kayıt sisteminin bir par&ccedil;ası olmamakta ve &uuml;zerinde hi&ccedil;bir işlem ger&ccedil;ekleştirilmemektedir.&nbsp;</span>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;'>
+			<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>&nbsp; &nbsp;</span>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;'>
+			<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>Kişisel verileriniz, Şirketimizle hukuki ilişkinizin kurulması esnasında ve s&ouml;z konusu ilişkinin devamı s&uuml;resince sizlerden olmak kaydıyla internet sitesi, mobil uygulamalar, başvuru formları gibi ara&ccedil;lar &uuml;zerinden elektronik ortamda toplanmaktadır. Bu doğrultuda toplanan kişisel verileriniz KVKK&rsquo;nın 5. maddelerinde belirtilen, bir s&ouml;zleşmenin kurulması veya ifası i&ccedil;in gerekli olması ve şirketimizin meşru menfaati i&ccedil;in zorunlu olması hukuka uygunluk sebebine dayanılarak otomatik yolla işlenmektedir.</span>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;'>
+			<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>&nbsp;</span>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;'>
+			<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>KVKK&rsquo;nın 11. maddesi h&uuml;k&uuml;mleri uyarınca kişisel verilerinize ilişkin olarak</span><strong>
+				<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>&nbsp;</span>
+			</strong><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>yasal haklarınız uyarınca taleplerinizi, Veri Sorumlusuna Başvuru Usul ve Esasları hakkında Tebliğ&rsquo;de belirtilen şartlara uygun d&uuml;zenlenmiş dilek&ccedil;eyle&nbsp;</span><strong><em><span style='font-size:16px;line-height:115%;font-family:"Calibri";'>&ldquo;Tuzla Organize Sanayi B&ouml;lgesi, 3.Cad. No:3 Tepe&ouml;ren, Tuzla/İstanbul&rdquo;</span></em></strong><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>&nbsp;</span><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>adresine kimlik tespiti yapılmak suretiyle <span style="		color: #00226a;">bizzat elden iletebilir ya da noter kanalıyla ulaştırabilirsiniz. Bunun yanında,&nbsp;</span></span><a href="mailto:vsybiyoteknoloji@hs02.kep.tr">
+				<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>vsybiyoteknoloji@hs02.kep.tr</span>
+			</a><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>&nbsp;</span><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: black;'>&nbsp;</span><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>kayıtlı elektronik posta (KEP) adresine, g&uuml;venli elektronik imza ve mobil imza ya da tarafınızca şirketimize daha &ouml;nce bildirilen ve tarafımızca teyit edilmiş olan şirket sistemimizdeki elektronik posta adresini kullanmak suretiyle&nbsp;</span><a href="mailto:kvk.komitesi@vsybiotechnology.com">
+				<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;
+		border: none windowtext 1.0pt;
+		padding: 0in;
+		background: white;'>kvk.komitesi@vsybiotechnology.com</span>
+			</a><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;
+		background: white;'>&nbsp;</span><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>&nbsp;</span><span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>elektronik posta adresine iletebilirsiniz.</span>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 0in;
+		line-height: 115%;
+		text-align: justify;
+		background: white;'>
+			<em>
+				<span style='		font-size: 16px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;'>&nbsp;</span>
+			</em>
+		</p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 8.0pt;
+		line-height: 106%;'><span style="font-size:16px;line-height:106%;">&nbsp;</span></p>
+		<p style='		margin-right: 0in;
+		margin-left: 0in;
+		font-size: 15px;
+		font-family: "Calibri",sans-serif;
+		margin-top: 0in;
+		margin-bottom: 8.0pt;
+		line-height: 106%;'><span style="font-size:16px;line-height:106%;">&nbsp;</span></p>
+	</div>
+
+</div>
+}
+else
+{ <div style="background-color:white; border-radius:.82rem" class="text-center">
+
+	<div id="english" style=" margin: 2% 4% 2% 4%; color: #00226a;">
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:"Calibri",sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style='font-size:14px;line-height:115%;font-family:"Calibri",serif;'>&nbsp;</span></h1>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:"Calibri",sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style="font-size:15px;line-height:115%;">&nbsp;</span></h1>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:"Calibri",sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style="font-size:15px;line-height:115%;">VSY BİYOTEKNOLOJİ VE İLA&Ccedil; SANAYİ A.Ş.</span></h1>
+		<h1 style='margin-top:2.55pt;margin-right:0in;margin-bottom:.0001pt;margin-left:5.8pt;font-size:16px;font-family:"Calibri",sans-serif;font-weight:bold;margin:0in;text-align:left;line-height:115%;'><span style="font-size:15px;line-height:115%;">PRIVACY NOTICE ON PERSONAL DATA PROTECTION</span></h1>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:107%;'>&nbsp;</p>
+		<p style='text-align:left;margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:107%;'><strong>Welcome to&nbsp;</strong>Acriva<sup>UD<strong>&nbsp;&nbsp;</strong></sup><strong>&nbsp;easy Toric Calculator!</strong></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'>
+			<span style='		font-size: 15px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>As a VSY&nbsp;</span><strong>
+				<span style='		font-size: 15px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>Biyoteknoloji ve İla&ccedil; Sanayi A.Ş. (the Company),&nbsp;</span>
+			</strong><span style='		font-size: 15px;
+		line-height: 115%;
+		font-family: "Calibri",sans-serif;
+		color: #00226a;'>we aim to inform you that about your personal data processed, in the processing of personal data.</span>
+		</p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><span style='font-size:15px;line-height:115%;font-family:"Calibri",sans-serif;'>&nbsp;</span></p>
+		<p style='margin-right:5.95pt;margin-left:0in;font-size:16px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:.0001pt;text-align:justify;line-height:115%;'><span style="font-size:15px;line-height:115%;">Within the scope of your relationship with the company, your name, surname, e-mail, telephone number, occupation information, clinical information data are processed in order to use the AcrivaUD Easy Toric Calculator software and to make order production planning.</span> <span style="font-size:15px;line-height:115%;">Your personal data are not transferred to third parties.</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><span style='font-size:15px;line-height:115%;font-family:"Calibri",sans-serif;'>&nbsp;</span></p>
+		<p style='margin-right:5.95pt;margin-left:0in;font-size:16px;font-family:"Calibri",sans-serif;margin-top:7.9pt;margin-bottom:.0001pt;text-align:justify;line-height:115%;'><span style="font-size:15px;line-height:115%;">The AcrivaUD Easy Toric Calculator application is not intended to process your special quality data such as health data, and if the health data for the relevant persons can be determined through the shared information, the data in question is not a part of our company&apos;s data recording system and no action is taken on it.</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><span style='font-size:15px;line-height:115%;font-family:"Calibri",sans-serif;'>&nbsp;</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:0in;line-height:115%;text-align:justify;'>Your personal data is collected during the establishment of your legal relationship with our Company and during the continuation of the relationship in question, in electronically through tools such as website, mobile applications, application forms and through communication channels with our Company, provided that it is from you.</p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><span style='font-size:15px;line-height:115%;font-family:"Calibri",sans-serif;'>&nbsp;</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:0in;line-height:115%;text-align:justify;'>
+			Pursuant to the provisions of Article 11 of the PDPL,&nbsp;in accordance with your legal rights regarding your personal data, you can send your demands with a petition prepared in accordance with the conditions specified in the Communiqu&eacute; on Application Procedures and Principles to the Data Controller, to the address&nbsp;<strong><em>&ldquo;Tuzla Organized Industrial Zone, 3. Cad. No: 3 Tepe&ouml;ren, Tuzla/İstanbul&rdquo;&nbsp;</em></strong>by hand or by a notary public, by means of identification. In addition,&nbsp;you can send it to the registered electronic mail (KEP) address of&nbsp;<a href="mailto:vsybiyoteknoloji@hs02.kep.tr"><span style="color:windowtext;">vsybiyoteknoloji@hs02.kep.tr</span></a>, to the e-mail address&nbsp;<a href="mailto:kvk.komitesi@vsybiotechnology.com">
+				<span style="		color: #00226a;
+		border: none windowtext 1.0pt;
+		padding: 0in;
+		background: white;">kvk.komitesi@vsybiotechnology.com</span>
+			</a> by using secure electronic signature and mobile signature or by using the e-mail address in our company system, which was previously notified to our company and confirmed by us.
+		</p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:115%;margin:0in;text-align:justify;background:white;'><span style="color:red;">&nbsp;</span></p>
+		<p style='margin-right:0in;margin-left:0in;font-size:15px;font-family:"Calibri",sans-serif;margin-top:0in;margin-bottom:8.0pt;line-height:107%;'>&nbsp;</p>
+	</div>
+</div>
+
+}
+
+<div style="display:flex" class="row">
+	@if (ViewBag.vsyLanguage == "tr-TR")
+	{
+	<div class="col-6">
+		<div style="margin-top:-1%; " class="form-check">
+			<input onchange="setCookieButton('vsyApprove', this.checked ,300, this)" class="form-check-input" type="checkbox" value="" id="checkApprove">
+			<label class="form-check-label" for="flexCheckDefault">
+				<u style="		color: #00226a;">Okudum, kabul ediyorum.</u>
+			</label>
+		</div>
+	</div>
+	<div style="text-align:right;" class="col-6">
+		<button onclick="buttonForm('vsyKey','',300)" id="buttonContinueTr" name="buttonContinueTr" disabled style="margin-top:-2%; color: white; background-color: #2596be; border-radius: .42rem;" type="button" class="btn btn-info buttonContinueTr">Devam Et</button>
+	</div>
+	}
+	else
+	{
+	<div class="col-6">
+		<div style="margin-top:-1%" class="form-check">
+			<input onchange="setCookieButton('vsyApprove', this.checked ,300, this)" class="form-check-input" type="checkbox" value="" id="checkApprove">
+			<label class="form-check-label" for="flexCheckDefault">
+				<u style="		color: #00226a;">I accept Terms and Conditions</u>
+			</label>
+		</div>
+	</div>
+	<div style="text-align:right;" class="col-6">
+		<button onclick="buttonForm('vsyKey','',300)" id="buttonContinueEn" disabled style="margin-top:-2%; color: white; background-color: #2596be; border-radius: .42rem;" type="button" class="btn btn-info">Continue</button>
+	</div>
+	}
+
+
+</div>
+
+@*}
+	else
+	{
+<script>
+	window.location.href = "Form";
+</script>
+	}*@

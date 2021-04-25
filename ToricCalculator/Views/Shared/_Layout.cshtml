@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ToricCalculator</title>
+
+	@*<link href="~/lib/mdb/css/mdb.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	@*<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+	<script src="~/js/ui-toastr.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>*@
+
+
+	<link href="~/css/site.css" rel="stylesheet" />
+	@*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">*@
+	<link href="https://cdn.bootcss.com/flag-icon-css/2.8.0/css/flag-icon.css" rel="stylesheet" />
+	<link href="https://mdbootstrap.github.io//bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+	<link href="https://mdbootstrap.github.io//bootstrap-material-design/assets/css/docs.min.css" rel="stylesheet">
+	<link rel="apple-touch-icon" href="https://mdbootstrap.github.io//bootstrap-material-design/apple-touch-icon.png">
+
+	<style>
+		.navbar-light .navbar-nav .nav-link {
+			color: #00226a;
+		}
+		 #toast-container > .toast-error {
+			background-color: #BD362F;
+		}
+		#toast-container > .toast-success {
+			background-color: #4aa252;
+		}
+		.contstyle {
+			margin-bottom: 3.5% !important;
+		}
+
+		@@media only screen and (min-width:270px) and (max-width: 767px) {
+			.contstyle {
+				margin-bottom: 11% !important;
+			}
+		}
+
+
+		@@media only screen and (min-width:768px) and (max-width: 1200px) {
+			.contstyle {
+				margin-bottom: 8% !important;
+			}
+		}
+	</style>
+</head>
+@*#00226a*@
+<body style="background-color:white ; font-family: 'Trebuchet MS', sans-serif;">
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<!--<div class="container">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+					<img style="width:55%" src="~/img/logo.png" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1 float-right">-->
+			@*<li class="nav-item">
+					<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Team</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contact</a>
+				</li>*@
+			<!--<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Language</a>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+
+			<div class="container">
+				<div class="col-xs-9">
+					<a class="navbar-brand" href="/">
+						<img style="width:55%; margin-left:-44%;" src="/img/logo.png">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+				<div class="col-xs-3">
+					<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+						<ul class="navbar-nav flex-grow-1 float-right">
+							<li class="nav-item">
+								<div class="d-lg-block d-none dropdown">
+									<a style="	font-size: 0.8vw; font-weight: bolder; background-color: #00226a; color: white; border-radius: .42rem !important; padding-top: 10%; padding-bottom: 10%;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink78" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink78">
+										<a onclick="setCookie('vsyLanguage', 'tr-TR', 300)" class="dropdown-item" href="#"><span class="flag-icon flag-icon-tr"></span>&nbsp;&nbsp; Türkçe</a>
+										<a onclick="setCookie('vsyLanguage', 'en-US', 300)" class="dropdown-item" href="#"><span class="flag-icon flag-icon-us"></span>&nbsp;&nbsp; English</a>
+										<a onclick="setCookie('vsyLanguage', 'de-DE', 300)" class="dropdown-item" href="#"><span class="flag-icon flag-icon-de"></span>&nbsp;&nbsp; Deutsch</a>
+										<a onclick="setCookie('vsyLanguage', 'es-ES', 300)" class="dropdown-item" href="#"><span class="flag-icon flag-icon-es"></span> &nbsp;&nbsp;Español</a>
+										<a onclick="setCookie('vsyLanguage', 'fr-CA', 300)" class="dropdown-item" href="#"><span class="flag-icon flag-icon-fr"></span> &nbsp;&nbsp;Français</a>
+									</div>
+								</div>
+							</li>
+							@*<li class="nav-item">
+									<select id="languageSelect" onchange="setCookie('vsyLanguage', this.value, 300)" style="height: calc(0.6em + 1.3rem + 2px) !important; padding: 0.10em 1rem!important;" class="form-control">
+										<option value="turkish" id="turkish">Türkçe</option>
+										<option value="english" id="english">English</option>
+										<option value="spanish" id="spanish">Español</option>
+										<option value="french" id="french">Français</option>
+									</select>
+								</li>*@
+
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div  class="container contstyle">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer style="background-color:white;" class="border-top footer text-muted">
+		<div class="container">
+			Copyright &copy; 2021  <a asp-area="" asp-controller="Home" asp-action="Index">VSY Biotechnology</a>
+		</div>
+	</footer>
+
+	@*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+		<script src="~/lib/bootstrap/dist/js/mdb.min.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+	@*@await RenderSectionAsync("Scripts", required: false)*@
+	@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+	@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>*@
+	@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+	@*<script>window.jQuery || document.write('<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>*@
+	@*<script src="~/js/jquery.min.js"></script>*@
+	@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>*@
+	@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+
+
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/vendor/popper.min.js"></script>
+	<script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js" crossorigin="anonymous"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/dist/js/bootstrap-material-design.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/vendor/anchor.min.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/vendor/clipboard.min.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/vendor/holder.min.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/src/application.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script src="https://mdbootstrap.github.io//bootstrap-material-design/assets/js/ie-emulation-modes-warning.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+	<script>
+
+		function RefreshPage() {
+			debugger;
+			var key = getCookie("vsyKey");
+			var culture = getCookie("vsyLanguage");
+			var newUrl = window.location.origin + window.location.pathname + "?key=" + key + "&culture=" + culture;
+			window.location.href = newUrl;
+			return false;
+		}
+
+		function setCookie(cname, cvalue, exdays) {
+			debugger;
+			var encodded = encodeURIComponent(cvalue);
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			var expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + encodded + ";path=/";
+			if (cname == "vsyModel" || cname == "vsyLanguage" || cname == "vsyApprove") {
+				
+				if (cname == "vsyLanguage") {
+				RefreshPage();	
+
+				}
+				else {
+					location.reload();
+				}
+				
+				
+			}
+		}
+
+		function getCookie(cname) {
+			debugger;
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					var cval = c.substring(name.length, c.length);
+					var decoded = decodeURIComponent(cval);
+					return decoded;
+				}
+			}
+			return "";
+		}
+
+		function checkCookie() {
+			var user = getCookie("username");
+			if (user != "") {
+				alert("Welcome again " + user);
+			} else {
+				user = prompt("Please enter your name:", "");
+				if (user != "" && user != null) {
+					setCookie("username", user, 365);
+				}
+			}
+		}
+
+		$(function () {
+			if (getCookie("vsyLanguage") == "tr-TR") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "TR";
+			}
+			else if (getCookie("vsyLanguage") == "es-ES") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "ES";
+			}
+			else if (getCookie("vsyLanguage") == "fr-CA") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "FR";
+			}
+			else if (getCookie("vsyLanguage") == "de-DE") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "DE";
+			}
+			else {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "EN";
+			}
+
+		});
+	</script>
+</body>
+</html>

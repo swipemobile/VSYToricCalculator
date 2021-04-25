@@ -1,0 +1,143 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@*<style>*@
+@*#smallcontainer {
+			/*width: 208px;
+			height: 100px;
+			margin: 200px auto auto;*/
+		}
+
+		.status {
+			height: 250px;
+			width: 453px;
+			background: #ffffff;
+			margin-left: 2px;
+			text-align: center;
+			border: 1px solid #ccc;
+			margin-left: 30%;
+			margin-top: 34%;
+			border-radius: 10px 0px 0px 10px;
+
+		}
+				.status1 {
+			height: 250px;
+			width: 453px;
+			background: #ffffff;
+			margin-left: 2px;
+			text-align: center;
+			border: 1px solid #ccc;
+			margin-left: 30%;
+			margin-top: 34%;
+			border-radius: 0px 10px 10px 0px;
+		}
+	</style>*@
+
+@*<div class="row">
+		<div class="col-md-1">
+
+		</div>
+		<div style="		background-color: white;
+			height: 39vh;
+			width: 17rem;
+			border-radius: 10px 0px 0px 10px;
+			margin-top: 15vh;
+			/*margin-left: 3.5%;*/
+	" class="col-md-5 screenSizes">
+			<img src="~/img/resizeudm.png" style=" position: absolute; width: 84%; margin-left: 5%; margin-top: 8%;">
+
+		</div>
+		<div style="		background-color: white;
+			height: 39vh;
+			width: 17rem;
+			margin-left: 0.6%;
+			border-radius: 0px 10px 10px 0px;
+			margin-top: 15vh;
+			margin-right: 0%;
+	" class="col-md-5 screenSizes">
+			<img src="~/img/resize1.png" style="position: absolute; width: 82%; margin-top: 8%; margin-left: 5%;">
+
+		</div>
+		<div class="col-md-1">
+
+		</div>
+	</div>*@
+
+@*/*width: 87%;
+	float: left;
+	background-color: white;
+	padding: 0%;
+	border-radius: 0px 10px 10px 0px;
+	margin-top:21%;*/*@
+
+
+@*--------------------------------------------------------------------------------------------------------*@
+<style>
+	.img1 {
+		width: 80%;
+		float: right;
+		/* margin: 20% 1% 0px 0px; */
+		border-radius: 10px 0px 0px 10px;
+		margin-top: 20%;
+	}
+
+	.img2 {
+		width: 84%;
+		float: left;
+		background-color: white;
+		padding: 2.05%;
+		border-radius: 0px 10px 10px 0px;
+		margin-top: 20.9%;
+	}
+	body {
+		background-color: #00226a!important;
+	}
+</style>
+<div style="display:flex" class="row">
+	<table>
+		<tr>
+			<td>
+				<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+					<img class="img1" src="~/img/lenses/Acriva.png" />
+				</a>
+			</td>
+			<td>
+				<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+					<img class="img2" src="~/img/lenses/al1 .png" />
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p style="text-align: center; margin-left: 20%; margin-top: 3%">
+			<span style="font-size: 1vW; color: white;">
+				Monofocal Toric IOL
+				<br />
+				<b>Acriva</b>
+				<b><sup>UD</sup></b>
+				<b>BB T UDM 611</b>
+			</span>
+		</p>
+				
+			</td>
+			<td>
+				<p style="text-align: center; margin-right: 20%; margin-top: 3%">
+			<span style="font-size: 1vW;  color: white;">
+				Trifocal Toric IOL
+				<br />
+				<b>Acriva</b>
+				<b><sup>UD</sup></b>
+				<b>Trinova Toric</b>
+			</span>
+		</p>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+@*----------------------------------------------------------------------------------------------------------------*@
+
+
+
+
