@@ -13,5 +13,6 @@ namespace ToricCalculator.Service.Abstract
 		Dictionary<string, string> GetLocalizedValue(string key);
 		List<JsonLocaliazator> GetJsonLocaliazators(string[] keys);
 		List<LanguageTransModel> GetLanguageTrans();
+		void AddOrUpdateResource(string key, string value);
 	}
 }

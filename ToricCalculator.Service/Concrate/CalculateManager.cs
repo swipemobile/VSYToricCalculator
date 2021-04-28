@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ToricCalculator.Service.Abstract;
 using ToricCalculator.Service.Constants;
@@ -19,7 +21,6 @@ namespace ToricCalculator.Service.Concrate
 
 		public ServiceResponse<FormSecrenModel> GetFormScreen()
 		{
-
 			//throw new ApiException("Hata mesajı");
 
 			Dictionary<string, string> localizedValue = new Dictionary<string, string>();
@@ -36,6 +37,7 @@ namespace ToricCalculator.Service.Concrate
 			return response;
 		}
 
+		
 
 	}
 }

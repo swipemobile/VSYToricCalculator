@@ -1,20 +1,10 @@
-﻿//using ICSharpCode.Decompiler.Util;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
-//using Syncfusion.Drawing;
-//using Syncfusion.HtmlConverter;
-//using Syncfusion.Pdf;
 using System;
 using System.Resources;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-
 using ToricCalculator.Models;
 using ToricCalculator.Service.Abstract;
 

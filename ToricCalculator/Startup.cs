@@ -15,6 +15,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ToricCalculator.Service.Abstract;
 using ToricCalculator.Service.Concrate;
+using ToricCalculator.Service.Model;
 
 namespace ToricCalculator
 {
@@ -42,6 +43,9 @@ namespace ToricCalculator
 			services.AddScoped<ILanguageManager, LanguageTranslationManager>();
 			services.AddScoped<ICalculateManager, CalculateManager>();
 			services.AddMemoryCache();
+
+			var connectionString = Configuration.GetSection("ConnectionString").Value;
+			services.AddSingleton(new AppSettings() { ConnectionString = connectionString });
 			// init database for localization
 			//var sqlConnectionString = Configuration["DbStringLocalizer:ConnectionString"];
 
