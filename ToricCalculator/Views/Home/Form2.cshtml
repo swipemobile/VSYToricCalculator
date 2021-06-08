@@ -1,0 +1,2042 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+	Layout = "_Layout";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+<script src="~/js/ui-toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+<style>
+	.formStyle {
+		background-color: white;
+		border-radius: .42rem
+	}
+
+	.radiotext {
+		margin: 10px 10px 0px 0px;
+	}
+
+	.labelFloat {
+		color: #75b9df;
+	}
+
+	.row {
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+	}
+
+
+	p {
+		font-size: 0; /* Fixes inline block spacing */
+	}
+
+	span {
+		width: 50%;
+		display: inline-block;
+	}
+
+		span.align-right {
+			text-align: right;
+		}
+
+		span a {
+			font-size: 16px;
+		}
+
+	.degreeIcon {
+		left: -5%;
+	}
+
+	/*.styleHeight {
+				height: calc(0.8em + 1.3rem + 2px);
+			}*/
+
+	.styleGroup {
+		margin-bottom: 0.75rem !important;
+	}
+
+	.parent {
+		position: relative;
+	}
+
+	.image5 {
+		position: absolute;
+		width: 69.4%;
+		margin-top: 49.6%;
+		margin-left: -84.1%;
+	}
+
+	.active.custom-file-control:before, .btn.active, .btn.focus, .btn:active, .btn:focus, .btn:hover, .custom-file-control:active:before, .custom-file-control:focus:before, .custom-file-control:hover:before, .focus.custom-file-control:before, .open > .btn.dropdown-toggle, .open > .dropdown-toggle.custom-file-control:before {
+		color: rgba(0,0,0,.87);
+		background-color: white;
+		border-color: white;
+	}
+
+	.image6 {
+		position: absolute;
+		width: 69%;
+		margin-top: 49.2%;
+		margin-left: -84.1%;
+	}
+
+	.image7 {
+		width: 100%;
+		margin-top: 1%;
+		margin-bottom: 4.1%;
+		margin-left: -0.5%;
+	}
+
+	.image8 {
+		position: absolute;
+		width: 76%;
+		margin-top: 9%;
+		margin-left: -87.6%;
+	}
+
+	.image9 {
+		position: absolute;
+		width: 106%;
+		top: -13px;
+		left: -21px;
+	}
+
+	.image10 {
+		position: absolute;
+		width: 15%;
+		top: 40%;
+		left: 78%;
+	}
+
+	.image12 {
+		position: absolute;
+		width: 30%;
+		margin-top: 14%;
+		margin-left: -64%;
+	}
+
+	.image13 {
+		position: absolute;
+		width: 69.5%;
+		margin-top: 49%;
+		margin-left: -84.3%;
+	}
+
+	.image15 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image16 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image17 {
+		position: absolute;
+		width: 33%;
+		top: 16%;
+		left: 34%;
+		transform: rotate( 0deg );
+	}
+
+	.image18 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image20 {
+		position: absolute;
+		width: 102%;
+		top: 21%;
+		left: -1%;
+		transform: rotate( 0deg );
+	}
+
+	.image22 {
+		position: absolute;
+		max-width: 161%;
+		margin-left: -34%;
+		margin-top: -6%;
+	}
+
+	.image30 {
+		position: absolute;
+		margin-top: 19.2%;
+		width: 38.5%;
+		margin-left: -68.9%;
+	}
+
+	.image40 {
+		position: absolute;
+		margin-top: 19%;
+		width: 37.6%;
+		margin-left: -68.5%;
+	}
+
+	.dikFlat {
+		right: 5%;
+	}
+
+	.dik {
+		right: 5%;
+	}
+
+	.calculateText {
+		margin-top: 45%;
+		position: absolute;
+		margin-left: -55.5%;
+		width: 13%;
+		text-align: center;
+		background-color: black;
+		border-radius: 3rem;
+		padding: 3%;
+	}
+
+	#calculateText {
+		text-align: center;
+		color: beige;
+		font-size: 12px;
+	}
+
+	.svg-icon.svg-icon-primary svg g [fill] {
+		/*fill: #B25C3F !important;*/
+		fill: darkred !important;
+	}
+
+	@@media(min-width: 576px) {
+		.col-sm-7 {
+			max-width: 57.333333% !important;
+		}
+	}
+
+
+	.table td, .table th {
+		padding: .60rem 1rem 0rem 0rem;
+		/*vertical-align: middle;*/
+	}
+
+	.tableStyle {
+		padding: 0rem 2.25rem;
+	}
+
+	.card-body {
+		padding: 2.5% 1% 2.2% 1%;
+	}
+
+	.custom-file-control, .form-control, .is-focused .custom-file-control, .is-focused .form-control {
+		background-image: linear-gradient( 0deg,#75b9df 2px,rgba(63,81,181,0) 0),linear-gradient( 0deg,rgba(0,0,0,.26) 1px,transparent 0);
+	}
+
+	.popover-body {
+		padding: 0rem 0rem 0.5rem 0.5rem;
+		color: #212529;
+	}
+
+	table {
+		width: 100% !important;
+		/*display:block;*/
+	}
+
+	div.centertext {
+		text-align: center;
+	}
+
+	.div label.lefttext {
+		text-align: left;
+	}
+
+	.div label.righttext {
+		text-align: left;
+	}
+
+	.testK {
+		color: white !important;
+		border-radius: .42rem !important;
+		padding-top: 2% !important;
+		padding-bottom: 2% !important;
+	}
+
+	.card {
+		border: 0;
+		box-shadow: 0px 0px 0px 0 rgb(0 0 0 / 12%);
+	}
+
+	.placeholderLoading {
+		padding: 9px 0px 9px 0px;
+		background-color: #e7e9ed;
+	}
+
+	@@media only screen and (min-width:270px) and (max-width: 370px) {
+		#results {
+			height: 79.7%;
+		}
+
+		#resultPreview {
+			height: 79.7%;
+		}
+
+/*		table {
+			width: 100% !important;
+			display: block !important;
+			overflow-x: auto !important;
+		}*/
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width:370px) and (max-width: 399px) {
+		#results {
+			height: 79.5%;
+		}
+
+		#resultPreview {
+			height: 79.5%;
+		}
+
+		/*table {
+			width: 100% !important;*/
+			/*display: block !important;*/
+			/*overflow-x: auto !important;
+		}*/
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width : 400px) and (max-width: 479px) {
+		#results {
+			height: 78%;
+		}
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#resultPreview {
+			height: 78%;
+		}
+
+		/*table {
+			width: 100% !important;*/
+			/*display: block !important;*/
+			/*overflow-x: auto !important;
+		}*/
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width : 480px) and (max-width: 499px) {
+		#results {
+			height: 75.6%;
+		}
+
+		#resultPreview {
+			height: 75.6%;
+		}
+
+		/*table {
+			width: 100% !important;*/
+			/*display: block !important;*/
+			/*overflow-x: auto !important;
+		}*/
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width : 500px) and (max-width: 516px) {
+		#results {
+			height: 75.3%;
+		}
+
+		#resultPreview {
+			height: 75.3%;
+		}
+
+	/*	.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width : 516px) and (max-width: 530px) {
+		#results {
+			height: 74.8%;
+		}
+
+		#resultPreview {
+			height: 74.8%;
+		}
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width : 530px) and (max-width: 560px) {
+		#results {
+			height: 73.3%;
+		}
+
+		#resultPreview {
+			height: 73.3%;
+		}
+
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+
+
+
+	@@media only screen and (min-width : 560px) and (max-width: 578px) {
+		#results {
+			height: 72.3%;
+		}
+
+		#resultPreview {
+			height: 72.3%;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+	/*	@@media only screen and (min-width : 580px) and (max-width: 581px) {
+			#results {
+				height: 73.5%;
+			}
+
+			#resultPreview {
+				height: 73.5%;
+			}
+		}*/
+	@@media only screen and (min-width : 578px) and (max-width: 768px) {
+		#results {
+			height: 73.38%;
+		}
+
+		#resultPreview {
+			height: 73.38%;
+		}
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			min-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			min-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+	/*	@@media only screen and (min-width : 580px) and (max-width: 768px) {
+			#results {
+				height: 73.33%;
+			}
+
+			#resultPreview {
+				height: 73.33%;
+			}
+		}*/
+
+
+
+	@@media only screen and (min-width: 768px) and (max-width: 992px) {
+		#results {
+			height: 49.1%;
+		}
+
+		#resultPreview {
+			height: 49.1%;
+		}
+		#style-row {
+			display:block;
+		}
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@@media only screen and (min-width: 990px) and (max-width: 1200px) {
+		#results {
+			height: 40.5%;
+		}
+
+		#resultPreview {
+			height: 40.5%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 1.4%;
+		}
+	}
+
+	@@media only screen and (min-width: 1200px) {
+		#results {
+			height: 32.85%;
+		}
+
+		#resultPreview {
+			height: 32.85%;
+		}
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 1.4%;
+		}
+		
+		/*
+		@@media only screen and (min-width: 2000px) and (max-width : 2200px) {
+			#results {
+				height: 39%;
+			}
+
+			#resultPreview {
+				height: 39%;
+			}
+		}*/
+	}
+
+	.stylecheck {
+		margin-top: 15% !important;
+	}
+
+
+
+	#snackbar {
+		visibility: hidden;
+		min-width: 250px;
+		margin-left: -125px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		padding: 16px;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		bottom: 30px;
+		font-size: 17px;
+	}
+
+		#snackbar.show {
+			visibility: visible;
+			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+
+	@@-webkit-keyframes fadein {
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
+	}
+
+	@@keyframes fadein {
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
+	}
+
+	@@-webkit-keyframes fadeout {
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
+	}
+
+	@@keyframes fadeout {
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
+	}
+</style>
+<script>
+
+		//$('#kt_datatable1').DataTable({
+		//	responsive: true
+		//});
+
+	$(function () {
+			document.getElementById('surgeonName').value = getCookie('vsysurgeonName');
+			document.getElementById('clinic').value = getCookie('vsyclinic');
+			document.getElementById('phone').value = getCookie('vsyphone');
+			document.getElementById('email').value = getCookie('vsyemail');
+			document.getElementById('country').value = getCookie('vsycountry');
+
+			var coutrySelected = getCookie('vsycountry');
+			if (coutrySelected == "US") {
+				document.getElementById("US").selected = "selected";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "UK") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "selected";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "France") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "selected";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Spain") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "selected";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Turkey") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "selected";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Italy") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "selected";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "selected";
+			}
+
+		});
+
+		$(function () {country
+			var options = [];
+			var $select = $(".1-100");
+			for (i = -20; i <= 45; i = i + 0.5) {
+				var option = "<option value='" + i.toFixed(2) + "'>" + i.toFixed(2) + "</option>"
+				options.push(option);
+			}
+			var optionSelect = "<option value='selectedVal' selected='selected'>Seçiniz</option>";
+			options.push(optionSelect);
+			$select.html(options);
+		});
+
+		function eyeControl(deg) {
+			if (deg == "left") {
+				document.getElementById("leftItem").innerText = "NAZAL";
+				document.getElementById("rightItem").innerText = "TEMPORAL";
+			}
+			else {
+				document.getElementById("leftItem").innerText = "TEMPORAL";
+				document.getElementById("rightItem").innerText = "NAZAL";
+			}
+		}
+		function ChangeMM() {
+			//document.getElementById("dik").innerText = "mm";
+			//document.getElementById("dikFlat").innerText = "mm";
+			setCookie('vsyNotasyon', 'mm', 300);
+			document.getElementById("flatKLabel").textContent = "K1 (Flat K) 5mm-10mm";
+			document.getElementById("steepKLabel").textContent = "K2 (Dik K) 5mm-10mm";
+		}
+		function ChangeD() {
+			//document.getElementById("dik").innerText = "D";
+			//document.getElementById("dikFlat").innerText = "D";
+			setCookie('vsyNotasyon', 'd', 300);
+			document.getElementById("flatKLabel").textContent = "K1 (Flat K) 30.00D~60.00D";
+			document.getElementById("steepKLabel").textContent = "K2 (Dik K) 30.00D~60.00D";
+		}
+
+
+		$(document).ready(function () {
+			var vsyM = '@ViewBag.vsyModel';
+			if (vsyM == "1") {
+				document.getElementById("trinova").selected = "selected";
+				document.getElementById("udm").selected = "";
+			}
+			else {
+				document.getElementById("trinova").selected = "";
+				document.getElementById("udm").selected = "selected";
+			}
+		});
+
+		$(document).ready(function () {
+			$('#desc2').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title2').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper2').html();
+				}
+
+			});
+			$('#desc').popover('hide');
+		});
+		function validClose() {
+			document.getElementById("validmessage").style.display = "none";
+		}
+		function messageWarningClose() {
+			document.getElementById("messageWarn").style.display = "none";
+		}
+		function validClose360() {
+			document.getElementById("validmessage360").style.display = "none";
+		}
+
+		function funcAxisY(deg) {
+			//if (deg.value == "")
+			//{
+			//	document.getElementById("image6").style.display = "none";
+			//}
+
+			//else {
+			//	if (deg.value > 180) {
+			//		document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+			//		document.getElementById("axisY").style.color = "#ff2d2d";
+			//		document.getElementById("validmessage").style.display = "";
+			//	}
+			//	else {
+			//		document.getElementById("image6").style.display = "";
+			//		document.getElementById("image6").style.transform = ("rotate(" + deg.value + "deg)");
+			//		document.getElementById("validmessage").style.display = "none";
+			//		document.getElementById("axisY").style.backgroundColor = "";
+			//		document.getElementById("axisY").style.color = "";
+			//	}
+			//}
+		}
+
+
+
+		function func(deg) {
+			//if (deg.value == "") document.getElementById("image5").style.display = "none";
+			//else {
+			//	if (deg.value > 180) {
+			//		document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+			//		document.getElementById("axisX").style.color = "#ff2d2d";
+			//		/*document.getElementById("validmessage").style.display = "";*/
+			//	}
+			//	else {
+			//		document.getElementById("image5").style.transform = ("rotate(" + deg.value + "deg)");
+			//		document.getElementById("image5").style.display = "";
+			//		/*document.getElementById("validmessage").style.display = "none";*/
+			//		document.getElementById("axisX").style.backgroundColorViewBag = "";
+			//		document.getElementById("axisX").style.color = "";
+			//	}
+			//}
+		}
+
+		function senkronX(deg) {
+			document.getElementById("axisY").oninput = "";
+			if (deg.value == "") document.getElementById("image5").style.display = "none";
+			else {
+				if (deg.value > 180) {
+					document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+					document.getElementById("axisX").style.color = "#ff2d2d";
+					/*document.getElementById("validmessage").style.display = "";*/
+				}
+				else {
+					document.getElementById("image5").style.transform = ("rotate(" + -deg.value + "deg)");
+					document.getElementById("image5").style.display = "";
+					/*document.getElementById("validmessage").style.display = "none";*/
+					document.getElementById("axisX").style.backgroundColor = "";
+					document.getElementById("axisX").style.color = "";
+				}
+			}
+
+			if (deg.value != null && deg.value != "") {
+				if (deg.value < 91) {
+					document.getElementById("axisY").value = Math.abs(parseInt(deg.value) + 90);
+					document.getElementById("image6").style.transform = ("rotate(" + Math.abs(-parseInt(deg.value) + 90) + "deg)");
+				}
+				else {
+					document.getElementById("axisY").value = Math.abs(deg.value - 90);
+					document.getElementById("image6").style.transform = ("rotate(" + Math.abs(-deg.value) + "deg)");
+				}
+			}
+			else document.getElementById("axisY").value = "";
+			if (deg.value == "") {
+				document.getElementById("image6").style.display = "none";
+			}
+			else document.getElementById("image6").style.display = "";
+			if (document.getElementById("axisY").value < 181) {
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+			}
+			else {
+				document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+				document.getElementById("axisY").style.color = "#ff2d2d";
+			}
+			document.getElementById("axisY").oninput = function () { senkronY(this); };
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+			}
+		}
+		function senkronY(deg) {
+			document.getElementById("axisX").oninput = "";
+
+			if (deg.value == "") {
+				document.getElementById("image6").style.display = "none";
+			}
+
+			else {
+				if (deg.value > 180) {
+					document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+					document.getElementById("axisY").style.color = "#ff2d2d";
+					/*document.getElementById("validmessage").style.display = "";*/
+				}
+				else {
+					document.getElementById("image6").style.display = "";
+					document.getElementById("image6").style.transform = ("rotate(" + -deg.value + "deg)");
+					/*document.getElementById("validmessage").style.display = "none";*/
+					document.getElementById("axisY").style.backgroundColor = "";
+					document.getElementById("axisY").style.color = "";
+				}
+			}
+
+
+			if (deg.value != null && deg.value != "") {
+				if (deg.value < 91) {
+					document.getElementById("axisX").value = Math.abs(parseInt(deg.value) + 90);
+					document.getElementById("image5").style.transform = ("rotate(" + Math.abs(-parseInt(deg.value) + 90) + "deg)");
+				}
+				else {
+					document.getElementById("axisX").value = Math.abs(deg.value - 90);
+					document.getElementById("image5").style.transform = ("rotate(" + Math.abs(-deg.value) + "deg)");
+				}
+			}
+			else document.getElementById("axisX").value = "";
+			if (deg.value == "") {
+				document.getElementById("image5").style.display = "none";
+			}
+			else document.getElementById("image5").style.display = "";
+			if (document.getElementById("axisX").value < 181) {
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+			}
+			else {
+				document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+				document.getElementById("axisX").style.color = "#ff2d2d";
+			}
+			document.getElementById("axisX").oninput = function () { senkronX(this); };
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+			}
+
+		}
+		function kesi(deg) {
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("image12").style.display = "none";
+				document.getElementById("kesiID").style.backgroundColor = "";
+				document.getElementById("kesiID").style.color = "";
+			}
+
+			else {
+				if (deg.value > 360) {
+					document.getElementById("kesiID").style.backgroundColor = "#FFF0F0";
+					document.getElementById("kesiID").style.color = "#ff2d2d";
+				//	document.getElementById("validmessage360").style.display = "";
+				}
+				else {
+					//document.getElementById("validmessage360").style.display = "none";
+					document.getElementById("kesiID").style.backgroundColor = "";
+					document.getElementById("kesiID").style.color = "";
+					document.getElementById("image12").style.display = "";
+					document.getElementById("image12").style.transform = ("rotate(" + parseInt(90 - parseInt(deg.value) ) + "deg)");
+				}
+			}
+		}
+		function flatkClick(deg) {
+			if (getCookie("vsyNotasyon") == "d") {
+				if (deg.value > 60 || deg.value < 30) {
+					document.getElementById("flatK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("flatK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("flatK").style.backgroundColor = "";
+					document.getElementById("flatK").style.color = "";
+				}
+			}
+			else {
+				if (deg.value > 10 || deg.value < 5) {
+					document.getElementById("flatK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("flatK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("flatK").style.backgroundColor = "";
+					document.getElementById("flatK").style.color = "";
+				}
+			}
+
+
+		if (deg.value == null || deg.value == "") {
+			document.getElementById("flatK").style.backgroundColor = "";
+			document.getElementById("flatK").style.color = "";
+			}
+		}
+		function steepkClick(deg) {
+			if (getCookie("vsyNotasyon") == "d") {
+				if (deg.value > 60 || deg.value < 30) {
+					document.getElementById("steepK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("steepK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("steepK").style.backgroundColor = "";
+					document.getElementById("steepK").style.color = "";
+				}
+			}
+			else {
+				if (deg.value > 10 || deg.value < 5) {
+					document.getElementById("steepK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("steepK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("steepK").style.backgroundColor = "";
+					document.getElementById("steepK").style.color = "";
+				}
+			}
+
+			if (deg.value == null || deg.value == "") {
+				document.getElementById("steepK").style.backgroundColor = "";
+				document.getElementById("steepK").style.color = "";
+			}
+		}
+
+		function controlinducedAstigmatism(deg) {
+			if (deg.value > 2.5 || deg.value < 0) {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "#FFF0F0";
+				document.getElementById("inducedAstigmatism").style.color = "#ff2d2d";
+			}
+			else {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+				document.getElementById("inducedAstigmatism").style.color = "";
+			}
+			if (deg.value == null || deg.value == "") {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+				document.getElementById("inducedAstigmatism").style.color = "";
+			}
+		}
+
+
+
+		function formuleResult()
+		{
+			var result =225;
+			return result;
+		}
+
+		function changeModel()
+		{
+
+		}
+
+		function calculate(deg) {
+			/*formules();*/
+			//if (document.getElementById("flatK").value == "" || document.getElementById("steepK").value == "") {
+			//	document.getElementById("messageWarn").style.display = "";
+			//}
+		/*else {*/
+
+			document.getElementById("results").style.display = "";
+			document.getElementById("resultPreview").style.display = "none";
+				document.getElementById("image13").style.display = "";
+				document.getElementsByClassName("calculateText")[0].style.display = "";
+				document.getElementById("calculateText").innerText = formuleResult() + "°";
+				document.getElementById("image13").style.transform = ("rotate(" + parseInt( -formuleResult()) + "deg)");
+				//var x = document.getElementById("results");
+				//x.style.display = "block";
+		/*document.getElementById("messageWarn").style.display = "none";*/
+			var vsyM = '@ViewBag.vsyModel';
+			if (vsyM == "1") {
+					document.getElementById("image30").style.display = "";
+					document.getElementById("image30").style.transform = ("rotate(" + parseInt(90 - formuleResult()) + "deg)");
+					document.getElementById("image40").style.display = "none";
+				}
+				else {
+					document.getElementById("image30").style.display = "none";
+					document.getElementById("image40").style.transform = ("rotate(" + parseInt(90 - formuleResult()) + "deg)");
+					document.getElementById("image40").style.display = "";
+			}
+
+			//if (deg) {
+			//	var x = document.getElementById("snackbarSuccess");
+			//	x.display = "show";
+			//	setTimeout(function () { x.display = x.display.replace("show", ""); }, 3000);
+			//}
+			//else {
+			//	var x = document.getElementById("snackbarFail");
+			//	x.display = "show";
+			//	setTimeout(function () { x.display = x.display.replace("show", ""); }, 3000);
+			//}
+
+			//}
+			toastr.success('Hesaplama işlemi başarıyla tamamlandı.', '', { timeOut: 1500 });
+		}
+
+		//$(document).on('click', '.close', function () {
+		//	$('.tooltipster-base').hide();
+		//});
+		function clean() {
+			//var x = document.getElementById("results");
+			//x.style.display = "none";
+			document.getElementById("results").style.display = "none";
+			document.getElementById("resultPreview").style.display = "";
+
+			document.getElementById("axisX").value = "";
+			document.getElementById("axisY").value = "";
+			document.getElementById("kesiID").value = "";
+			/*document.getElementById("surgeonName").value = "";*/
+			document.getElementById("referans").value = "";
+			//document.getElementById("country").value = "";
+			//document.getElementById("phone").value = "";
+			//document.getElementById("email").value = "";
+			//document.getElementById("clinic").value = "";
+			document.getElementById("flatK").value = "";
+			document.getElementById("steepK").value = "";
+			document.getElementById("inducedAstigmatism").value = "";
+			document.getElementById("image5").style.display = "none";
+			document.getElementById("image6").style.display = "none";
+			document.getElementById("image12").style.display = "none";
+			document.getElementById("image13").style.display = "none";
+			document.getElementById("calculateId").style.display = "none";
+			document.getElementById("image30").style.display = "none";
+			document.getElementById("image40").style.display = "none";
+
+			//clean error colors
+			document.getElementById("axisY").style.backgroundColor = "";
+			document.getElementById("axisY").style.color = "";
+			document.getElementById("axisX").style.backgroundColor = "";
+			document.getElementById("axisX").style.color = "";
+			document.getElementById("kesiID").style.backgroundColor = "";
+			document.getElementById("kesiID").style.color = "";
+			document.getElementById("flatK").style.backgroundColor = "";
+			document.getElementById("flatK").style.color = "";
+			document.getElementById("steepK").style.backgroundColor = "";
+			document.getElementById("steepK").style.color = "";
+			document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+			document.getElementById("inducedAstigmatism").style.color = "";
+		}
+
+
+		$(document).ready(function () {
+			$('#desc').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper').html();
+				}
+
+			});
+			$('#desc2').popover('hide');
+		});
+
+
+
+		$(document).on('click', '.close-desc', function () {
+			$('#desc').popover('hide');
+		});
+
+
+		$(document).ready(function () {
+			$('#desc2').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title2').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper2').html();
+				}
+
+			});
+			$('#desc').popover('hide');
+		});
+
+		$(document).on('click', '.close-desc2', function () {
+			$('#desc2').popover('hide');
+		});
+
+
+
+	function genPDF() {
+		var doc = new jsPDF();
+	doc.text(20, 20, 'Hello world!');
+	doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+	doc.addPage();
+	doc.text(20, 20, 'Do you like that?');
+
+	doc.save('Test.pdf');
+	}
+
+		function flatKClick() {
+			//if (document.getElementById("flatK").value < document.getElementById("steepK").value) {
+			//	document.getElementById("messageK").style.display = "";
+			//}
+			//else {
+			//	document.getElementById("messageK").style.display = "none";
+			//}
+		}
+		function steepKClick() {
+			//if (document.getElementById("flatK").value < document.getElementById("steepK").value) {
+			//	document.getElementById("messageK").style.display = "";
+			//}
+			//else {
+			//	document.getElementById("messageK").style.display = "none";
+			//}
+		}
+		function messageKClose() {
+			/*document.getElementById("messageK").style.display = "none";*/
+		}
+</script>
+
+	<div id="style-row" class="row" style="background-color: #e7e9ed; border-radius: .92rem; padding: 1%">
+		<div id="style-cont1" style="padding:0%" class="col-7">
+			<div class="formStyle">
+				<form>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-3">
+								<fieldset class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">@Localizer["Message"]</label>
+									<input type="text" class="form-control" id="referans" value="">
+								</fieldset>
+							</div>
+							<div class="col-md-9">
+								<div class="form-group">
+									<label class="label-floating">Ürün Seçimi</label>
+									<select onchange="setCookie('vsyModel', this.value, 300)" id="items" name="delivery" class="form-control">
+										<option id="trinova" value="1" selected>Trifocal Toric IOL Acriva Trinova</option>
+										<option id="udm" value="2">Monofocal Toric IOL Acriva BB T UDM 611</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="formStyle">
+				<form>
+					<div style="border-radius:.92rem" class="card-header flex-wrap border-0  pb-0 darkerColor">
+						<div class="card-title">
+							<p style="text-align: left;FONT-SIZE:105%;color: #00226a;font-weight: bolder;">
+								<span class="card-label text-uppercase" id="">CERRAH BİLGİLERİ</span>
+								<span class="btn close-desc2" id="desc" style="float:right;">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style=" -ms-transform: rotate(360deg); -webkit-transform: rotate( 360deg ); transform: rotate( 360deg );float:right; -ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="#ff8f1f"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" /><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25c.09-.656.54-1.134 1.342-1.134c.686 0 1.314.343 1.314 1.168c0 .635-.374.927-.965 1.371c-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486c.609-.463 1.244-.977 1.244-2.056c0-1.511-1.276-2.241-2.673-2.241c-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927c.609 0 1.028-.394 1.028-.927c0-.552-.42-.94-1.029-.94c-.584 0-1.009.388-1.009.94z" /></g></svg>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4">
+								<fieldset class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">Ad Soyad</label>
+									<input onchange="setCookie('vsysurgeonName', this.value, 300)" class="form-control" type="text" value="" id="surgeonName" />
+								</fieldset>
+							</div>
+							<div class="col-md-4">
+								<fieldset class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">Klinik</label>
+									<input onchange="setCookie('vsyclinic', this.value,300)" class="form-control" type="text" value="" id="clinic" />
+								</fieldset>
+							</div>
+							<div class="col-md-4">
+								<fieldset class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">Telefon</label>
+									<input onchange="setCookie('vsyphone', this.value,300)" class="form-control" type="text" value="" id="phone" />
+								</fieldset>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<fieldset class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">E-Posta</label>
+									<input onchange="setCookie('vsyemail', this.value,300)" class="form-control" type="text" value="" id="email" />
+								</fieldset>
+							</div>
+							<div class="col-md-6">
+								<fieldset class="form-group">
+									@*<label for="exampleInputEmail1" class="bmd-label-floating">Ülke</label>
+										<input onchange="setCookie('vsycountry', this.value,300)" class="form-control" type="text" value="" id="country" />*@
+									@*<select onchange="setCookie('vsyModel', this.value, 300)" id="items" name="delivery" class="form-control">
+											<option id="trinova" value="1" selected>Trifocal Toric IOL Acriva Trinova</option>
+											<option id="udm" value="2">Monofocal Toric IOL Acriva BB T UDM 611</option>
+										</select>*@
+									<label for="exampleInputEmail1" class="bmd-label-floating">Ülke</label>
+									<select onchange="setCookie('vsycountry', this.value, 300)" name="country" id="country" class="form-control">
+										<option id="SelectedCountry" value="SelectedCountry" selected="selected">Seçiniz</option>
+										<option id="US" value="US">United States</option>
+										<option id="UK" value="UK">United Kingdom</option>
+										<option id="France" value="France">France</option>
+										<option id="Germany" value="Germany">Germany</option>
+										<option id="Spain" value="Spain">Spain</option>
+										<option id="Italy" value="Italy">Italy</option>
+										<option id="Turkey" value="Turkey">Turkey</option>
+									</select>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="formStyle">
+				<form>
+					<div style="border-radius:.92rem;" class="card-header flex-wrap border-0  pb-0 darkerColor">
+						<div class="card-title">
+							<p style="text-align: left;FONT-SIZE: 105%;color: #00226a;font-weight: bolder;">
+								<span class="card-label text-uppercase" id="">GÖZ BİLGİLERİ</span>
+								<span id="desc2" class="btn close-desc" style="float:right;">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style=" -ms-transform: rotate(360deg); -webkit-transform: rotate( 360deg ); transform: rotate( 360deg );float:right; -ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="#ff8f1f"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" /><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25c.09-.656.54-1.134 1.342-1.134c.686 0 1.314.343 1.314 1.168c0 .635-.374.927-.965 1.371c-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486c.609-.463 1.244-.977 1.244-2.056c0-1.511-1.276-2.241-2.673-2.241c-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927c.609 0 1.028-.394 1.028-.927c0-.552-.42-.94-1.029-.94c-.584 0-1.009.388-1.009.94z" /></g></svg>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-6" style="margin-top:5%">
+
+
+
+								@*<div class="row">
+										<div class="form-check col-6">
+											<input onclick="ChangeD()" type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked>
+											<label class="form-check-label" for="materialUnchecked">p(Diyoptri)</label>
+										</div>
+										<div class="form-check col-6">
+											<input onclick="ChangeMM()" type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+											<label class="form-check-label" for="materialChecked">r(Milimetre)</label>
+											<hr style="width: 257%; margin-right: 313%; margin-left: -149%; border: 0.1px solid #e5e5e5; margin-top: 11%;" />
+
+										</div>
+
+									</div>*@
+
+
+
+								<div class="row">
+									<div style="margin-left:2%" class="form-check">
+										<input onchange="ChangeD()" type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+										<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">p(Diyoptri)</label>
+									</div>
+									<div style="margin-left:2%" class="form-check">
+										<input onclick="ChangeMM()" type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+										<label style="font-size: 86%;" class="form-check-label" for="materialChecked">r(Milimetre)</label>
+										<hr style="width: 257%; margin-right: 313%; margin-left: -149%; border: 0.1px solid #e5e5e5; margin-top: 11%;" />
+									</div>
+								</div>
+
+
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group row">
+									<label for="exampleInputEmail1" class="bmd-label-floating">GİL Sferik Gücü(*)</label>
+									<select name="delivery" class="1-100 form-control"></select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="exampleInputEmail1" id="flatKLabel" class="bmd-label-floating">K1 (Flat K) 30.00D~60.00D</label>
+									<input onchange="flatkClick(this)" class="form-control" type="text" value="" id="flatK" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="bmd-label-floating">Flat Eksen 0° - 180°</label>
+									<input maxlength="3" oninput="senkronX(this)" value="" class="form-control" type="text" id="axisX" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="exampleInputEmail1" id="steepKLabel" class="bmd-label-floating">K2 (Dik K) 30.00D~60.00D</label>
+									<input onchange="steepkClick(this)" class="form-control" type="text" value="" id="steepK" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">Dik Eksen 0° - 180°</label>
+									<input maxlength="3" oninput="senkronY(this)" value="" class="form-control" type="text" id="axisY" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="inducedAstigmatism" class="bmd-label-floating">Cerrahiye Bağlı Gelişen Astigmatizma 0.00D - 2.50D</label>
+									<input onchange="controlinducedAstigmatism(this)" class="form-control" type="text" value="" id="inducedAstigmatism" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="exampleInputEmail1" class="bmd-label-floating">Kesi Yeri 0° - 360° </label>
+									<input style="background-color:transparent" maxlength="3" oninput="kesi(this)" value="" class="form-control" type="text" id="kesiID" />
+								</div>
+							</div>
+						</div>
+						<br />
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<button onclick="clean()" style="		margin-right: 1%;
+		background-color: #ff8f1f;
+		border-color: #ff8f1f;
+		border-radius: .42rem;
+		border: transparent;
+		padding: 6px 13px;
+		font-weight: bolder;
+		font-size: 91%;
+" type="button" class="btn-warning">
+										TEMİZLE
+									</button>
+									<button onclick="calculate(true)" style="
+		background-color: #20a4d5;
+		border-color: #20a4d5;
+		border-radius: .42rem;
+		border: transparent;
+		padding: 6px 13px;
+		font-weight: bolder;
+		font-size: 91%;
+" type="button" class="btn-success text-uppercase">
+										HESAPLA
+									</button>
+									@*<button style="background-color: #20a4d5; border-color: #20a4d5; border-radius: .42rem; border: transparent; padding: 6px 13px; font-size: 13px;" type="button" class="btn-success text-uppercase">
+											Gönder
+										</button>*@
+
+									@*<button style="background-color: #20a4d5; border-color: #20a4d5; border-radius: .42rem; border: transparent; padding: 6px 13px; font-size: 13px;" type="button" class="btn-success text-uppercase" data-toggle="modal" data-target="#sendPdf">
+											Gönder
+										</button>*@
+
+									<div class="modal fade" id="sendPdf" tabindex="-1" role="dialog" aria-labelledby="">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+													<h4 class="modal-title" id="myModalLabel">Send mail with attached document</h4>
+												</div>
+
+												<div class="modal-body">
+													<div class="form-group">
+														<label>Recipient</label>
+														<input type="password" name="sifre" class="form-control" />
+														<label>Subject</label>
+														<input type="password" name="sifre" class="form-control" />
+														<label>Message</label>
+														<input type="password" name="sifre" class="form-control" />
+														<label>Signature</label>
+														<input type="password" name="sifre" class="form-control" />
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" style="background-color:black; color:white !important;" class="btn" data-dismiss="modal">Kapat</button>
+													<button type="submit" class="btn btn-info">Gönder</button>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+									@*<button type="button" class="btn btn-success btn-sm" style="background-color:#FF214F; color:white !important;" data-toggle="modal" data-target="#UyeOl">
+											Gönder
+										</button>*@
+									<div style="margin-top:10%;" class="modal fade" id="UyeOl" tabindex="-1" role="dialog" aria-labelledby="">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+													@*<h4 class="modal-title" id="myModalLabel">Üye Ol</h4>*@
+												</div>
+												@*<form method="post" action="~/JobList/ApplyPopUp">*@
+												<div class="modal-body">
+													<div class="form-group">
+														<label>Ön Yazı</label>
+														<br />
+														<br />
+														@*<label>  @item.Letter </label>*@
+														@*<input type="password" name="sifre" class="form-control" />*@
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button @*type="button"*@ style="background-color:#FF214F; color:white !important;" class="btn" data-dismiss="modal">Kapat</button>
+													@*<button type="submit" style="background-color:#FF214F; color:white !important;" class="btn">Üye Ol</button>*@
+												</div>
+												@*</form>*@
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+
+									@*<button onclick="genPDF()">Generate PDF</button>
+										<a href="@Url.Action("Form","Home", new {culture = "tr-TR"})">EN</a>
+										<a href="@Url.Action("Form","Home", new {culture = "en-US"})">TR</a>
+										<a href="@Url.Action("writter","Home")">writter</a>*@
+								</div>
+							</div>
+						</div>
+						<div class="row" id="validmessage360" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+							<p style="margin:1%!important" id="messagevalidate360">
+								@*<i>x</i>*@
+								<img onclick="validClose360()" style="margin-top:-3px!important; width:2%!important" src="~/img/close.png" />
+								Bu değer 0 ile 360 arasında olmalıdır!
+							</p>
+						</div>
+
+						<div class="row" id="messageK" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+							<p style="margin:1%!important" id="messageKK">
+								@*<i>x</i>*@
+								<img onclick="messageKClose()" style="margin-top:-3px!important; width:2%!important" src="~/img/close.png" />
+								K1 değeri K2 değerinden büyük olmalıdır!
+							</p>
+						</div>
+
+						<div class="row" id="messageWarn" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+							<p style="margin:1%!important" id="messageKK">
+								@*<i>x</i>*@
+								<img onclick="messageWarningClose()" style="margin-top:-3px!important; width:2%!important" src="~/img/close.png" />
+								Lütfen eksik bilgileri doldurunuz!
+							</p>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		@*<div id="style-cont1" style="margin-left: 1.3%; width: 40.3%;">*@
+		<div class="col-5" id="style-col5">
+			@*<div class="col-5">*@
+			<div class="formStyle">
+				<div class="parent">
+					<div class="form-group styleGroup">
+						<p style="text-align: left;FONT-SIZE: 105%; padding: 4% 4% 0% 4%;color: #00226a;font-weight: bolder;">
+							<span id="leftItem" style="float:left; text-align:left;">TEMPORAL</span>
+							<span id="rightItem" style="float:right; text-align:right;">NAZAL</span>
+						</p>
+						<div style="color: #75b9df; font-size: 15px;" class="centertext">
+							GÖZ SEÇİMİ
+						</div>
+						<div class="row" style="margin-left:26%!important">
+							<div style="margin-left:2%" class="form-check">
+								<input onchange="eyeControl('right')" type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+								<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">Sağ Göz (OD)</label>
+							</div>
+							<div style="margin-left:2%" class="form-check">
+								<input onchange="eyeControl('left')" type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+								<label style="font-size: 86%;" class="form-check-label" for="materialChecked">Sol Göz (OS)</label>
+							</div>
+						</div>
+						<hr style="margin-left: 23%; margin-right: 19%;  border: 0.5px solid #75b9df;" />
+					</div>
+					<div>
+						<img id="image7" class="image7" src="~/img/lenses/degree.png" />
+						<img id="image8" class="image8" src="~/img/lenses/eye2.png" />
+						<img style="display:none" id="image30" class="image30" src="~/img/lenses/lensTrinova.png" />
+						<img style="display:none" id="image40" class="image40" src="~/img/lenses/lensUDM 1.png" />
+						<img id="image5" style="display:none;" class="image5" src="~/img/redline.png" />
+						<img style="display:none" id="image6" class="image6" src="~/img/greenline2.png" />
+						<img style="display:none" id="image13" class="image13" src="~/img/resultLine.png" />
+						<img id="image12" class="image12" src="~/img/yeni3.png" style="display: none;" />
+						<button style="display:none" class="calculateText" id="calculateId">
+							<div id="calculateText">0</div>
+						</button>
+					</div>
+
+				</div>
+			</div>
+
+			<div style="display:block; margin-top:3.3%;" id="resultPreview" class="formStyle">
+				<div style="border-radius:.42rem" class="card card-custom gutter-b">
+					<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+						<div class="card-title">
+							<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+								Results
+							</h3>
+						</div>
+					</div>
+					<div style="padding: 0rem 2.25rem;" class="card-body lighterColor tableStyle">
+						<table class="table table-separate" id="">
+							@*table-separate table-head-custom table-checkable*@
+							<thead>
+								<tr>
+									<th>&nbsp;#</th>
+									<th>IOL</th>
+									<th>Power</th>
+									<th>Axis</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input disabled type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td>
+										<div class="placeholderLoading"></div>
+									</td>
+									<td>
+										<div class="placeholderLoading"></div>
+									</td>
+
+									<td><div class="placeholderLoading"></div></td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input class="stylecheck" disabled type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input disabled type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input disabled type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+									<td><div class="placeholderLoading"></div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div style="display:none; margin-top:3.3%;" id="results" class="formStyle">
+				<div style="border-radius:.42rem" class="card card-custom gutter-b">
+					<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+						<div class="card-title">
+							<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+								Results
+							</h3>
+						</div>
+					</div>
+					<div style="padding: 0rem 2.25rem;" class="card-body lighterColor tableStyle">
+						<table class="table table-separate" id="">
+							<thead>
+								<tr>
+									<th>&nbsp;#</th>
+									<th>IOL</th>
+									<th>Power</th>
+									<th>Axis</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+
+									<td>
+										<label class="checkbox">
+											<input type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td>18.00D</td>
+									<td>1.50D</td>
+
+									<td>130°</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td>18.00D</td>
+									<td>1.50D</td>
+
+									<td>130°</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td>18.00D</td>
+									<td>1.50D</td>
+
+									<td>130°</td>
+								</tr>
+								<tr>
+									<td>
+										<label class="checkbox">
+											<input type="checkbox" name="Checkboxes1">
+											<span></span>
+										</label>
+									</td>
+									<td>18.00D</td>
+									<td>1.50D</td>
+									<td>130°</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+
+			@*<div style="margin-top:3.3%;" id="results" class="formStyle">
+					<div style="border-radius:.42rem" class="card card-custom gutter-b">
+						<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+							<div class="card-title">
+								<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+									Results
+								</h3>
+							</div>
+						</div>
+						<div style="padding: 0rem 2.25rem;" class="card-body lighterColor">
+							<table class="table table-responsive">
+								<thead>
+									<tr class="col-12">
+										<th class="col-2">#</th>
+										<th class="col-2">IOL</th>
+										<th class="col-4">Power</th>
+										<th class="col-4">Axis</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="radio">
+												<label><input type="radio" id='regular' name="optradio"></label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>18.00D</label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>1.50D</label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>130°</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="radio">
+												<label><input type="radio" id='express' name="optradio"></label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>18.00D</label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>1.50D</label>
+											</div>
+										</td>
+										<td>
+											<div class="radiotext">
+												<label for='regular'>130°</label>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>*@
+
+
+
+			@*<div style="display:none; margin-top:3.3%;" id="results" class="formStyle">
+					<div style="border-radius:.42rem" class="card card-custom gutter-b">
+						<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+							<div class="card-title">
+								<h3 style="font-size: 16px; color: #00226a; font-weight: 500;" class="card-label text-uppercase">
+									Results
+								</h3>
+							</div>
+						</div>
+						<div style="padding: 0rem 2.25rem;line-height:0px!important" class="card-body lighterColor">
+							<table class="table table-separate table-head-custom table-checkable" id="kt_datatable1">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>IOL</th>
+										<th>Power</th>
+										<th>Axis</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox" name="Checkboxes1">
+												<span></span>
+											</label>
+										</td>
+										<td>18.00D</td>
+										<td>1.50D</td>
+
+										<td>130°</td>
+									</tr>
+									<tr>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox" name="Checkboxes1">
+												<span></span>
+											</label>
+										</td>
+										<td>18.00D</td>
+										<td>1.50D</td>
+
+										<td>130°</td>
+									</tr>
+									<tr>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox" name="Checkboxes1">
+												<span></span>
+											</label>
+										</td>
+										<td>18.00D</td>
+										<td>1.50D</td>
+
+										<td>130°</td>
+									</tr>
+									<tr>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox" name="Checkboxes1">
+												<span></span>
+											</label>
+										</td>
+										<td>18.00D</td>
+										<td>1.50D</td>
+										<td>130°</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>*@
+
+
+		</div>
+	</div>
+@*</div>*@
+<div class="popover_title" style="display: none">
+	<h6>Hesaplama Methodu</h6>
+	<small>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, reised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</small>
+</div>
+<div id="popover_content_wrapper" style="display: none">
+	<span id="cart_details"></span>
+	<div align="right">
+		<a class="btn-sm btn-primary close-desc testK">
+			OK
+		</a>
+	</div>
+</div>
+
+
+<div class="popover_title2" style="display: none">
+	<h6>Hesaplama Methodu</h6>
+	<small style="color: #00226a">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, reised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</small>
+</div>
+<div id="popover_content_wrapper2" style="display: none">
+	<span id="cart_details"></span>
+	<div align="right">
+		<a class="btn-sm btn-primary close-desc2 testK">OK</a>
+	</div>
+</div>
+
+<div style="display:none;" id="snackbarSucces">Hesaplama işlemi başarılı bir şekilde gerçekleştirildi.</div>
+<div style="display:none;" id="snackbarFail">Beklenmeyen bir hata oluştu</div>
+
+
+
+@{Html.BeginForm("ExportToPDF", "Home", FormMethod.Post);
+	{
+		@*<div>
+				<input type="submit" value="Convert PDF" style="width:150px;height:27px" />
+			</div>*@
+	}
+	Html.EndForm();
+}

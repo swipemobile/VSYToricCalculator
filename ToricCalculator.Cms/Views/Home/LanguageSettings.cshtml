@@ -1,0 +1,128 @@
+﻿@model List<ToricCalculator.Service.Model.LanguageTransModel>
+@{
+	ViewData["Title"] = "Home Page";
+	Layout = "_Layout";
+	int count = Model.Count();
+	string culture = Model.FirstOrDefault().Culture; 
+}
+<script>
+	function changeLang(deg) {
+		debugger;
+		window.location.href = window.location.origin + "/Home/LanguageSettings?culture=" + deg
+	}
+</script>
+<div style=" margin: 4% 1% 4% 1%; " class="card card-custom gutter-b example example-compact">
+
+	<div class="card-header">
+		@if (culture == "tr-TR")
+		{
+			<h3 class="card-title">Türkçe Dil Ayarları</h3>
+		}
+		else if (culture == "fr-CA")
+		{
+			<h3 class="card-title">Fransızca Dil Ayarları</h3>
+		}
+		else if (culture == "es-ES")
+		{
+			<h3 class="card-title">İspanyolca Dil Ayarları</h3>
+		}
+		else if (culture == "de-DE")
+		{
+			<h3 class="card-title">Almanca Dil Ayarları</h3>
+		}
+		else
+		{
+			<h3 class="card-title">İngilizce Dil Ayarları</h3>
+		}
+		<div class="card-toolbar">
+			<div class="example-tools justify-content-center">
+				<div style="margin-block:0%!important" class="form-group">
+					<select class="form-control" id="exampleSelect1" onchange="changeLang(this.value)">
+						@if (culture == "tr-TR")
+						{
+							<option selected value="tr-TR">Türkçe</option>
+						}
+						else
+						{
+							<option value="tr-TR">Türkçe</option>
+
+						}
+
+
+						@if (culture == "es-ES")
+						{
+							<option selected value="es-ES">İspanyolca</option>
+						}
+						else
+						{
+							<option value="es-ES">İspanyolca</option>
+						}
+
+
+
+						@if (culture == "fr-CA")
+						{
+							<option selected value="fr-CA">Fransızca</option>
+						}
+						else
+						{
+							<option value="fr-CA">Fransızca</option>
+						}
+
+
+
+						@if (culture == "de-DE")
+						{
+							<option selected value="de-DE">Almanca</option>
+						}
+						else
+						{
+							<option value="de-DE">Almanca</option>
+						}
+
+						@if (culture == "en-US")
+						{
+							<option selected value="en-US">İngilizce</option>
+						}
+						else
+						{
+							<option value="en-US">İngilizce</option>
+						}
+
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<form class="form" method="post">
+		<div class="card-body">
+			<input hidden value="@culture" name="Culture" />
+
+			@for (int i = 0; i < count; i += 2)
+			{
+				<div class="form-group row">
+					<label class="col-lg-2 col-form-label text-lg-right">@Model[i].Key</label>
+					<div class="col-lg-3">
+						<input name="@Model[i].Key" type="text" class="form-control" value="@Model[i].Value">
+						@*<span class="form-text text-muted">Please enter your full name</span>*@
+					</div>
+					@if (count != i + 1)
+					{
+						<label class="col-lg-2 col-form-label text-lg-right">@Model[i + 1].Key</label>
+						<div class="col-lg-3">
+							<input name="@Model[i+1].Key" type="text" class="form-control" value="@Model[i + 1].Value">
+						</div>
+					}
+				</div>
+			}
+		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-10">
+					<button type="submit" class="btn btn-success mr-2">Kaydet</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

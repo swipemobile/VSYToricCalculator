@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToricCalculator", "ToricCal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToricCalculator.Service", "ToricCalculator.Service\ToricCalculator.Service.csproj", "{6FEFB0EE-7C9D-44C0-9183-DEDC556EEE47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToricCalculator.Cms", "ToricCalculator.Cms\ToricCalculator.Cms.csproj", "{E2E9CA42-2B04-497F-BFAC-3FCFDF7A7473}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToricCalculator.Cms", "ToricCalculator.Cms\ToricCalculator.Cms.csproj", "{E2E9CA42-2B04-497F-BFAC-3FCFDF7A7473}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

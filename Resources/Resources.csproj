@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Resources\SharedResource.de-DE.resx" />
+    <Content Remove="wwwroot\Resources\SharedResource.en-US.resx" />
+    <Content Remove="wwwroot\Resources\SharedResource.es-ES.resx" />
+    <Content Remove="wwwroot\Resources\SharedResource.fr-CA.resx" />
+    <Content Remove="wwwroot\Resources\SharedResource.tr-TR.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\Resources\SharedResource.de-DE.resx" />
+    <EmbeddedResource Include="wwwroot\Resources\SharedResource.en-US.resx" />
+    <EmbeddedResource Include="wwwroot\Resources\SharedResource.es-ES.resx" />
+    <EmbeddedResource Include="wwwroot\Resources\SharedResource.fr-CA.resx" />
+    <EmbeddedResource Include="wwwroot\Resources\SharedResource.tr-TR.resx" />
+  </ItemGroup>
+
+</Project>

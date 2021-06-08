@@ -1,5 +1,32 @@
 ﻿<!DOCTYPE html>
+<link href="~/css/components.min.css" rel="stylesheet" />
 <style>
+	.footer{position:absolute;}
+	
+	.cookie-banner {
+		position: fixed;
+		bottom: 40px;
+		left: 10%;
+		right: 10%;
+		width: 80%;
+		padding: 5px 14px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #eee;
+		border-radius: 5px;
+		box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+	}
+
+	.close {
+		height: 20px;
+		background-color: #777;
+		border: none;
+		color: white;
+		border-radius: 2px;
+		cursor: pointer;
+	}
+
 	* {
 		box-sizing: border-box;
 	}
@@ -224,59 +251,101 @@
 	}
 </style>
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
 
-	<html>
-	<body>
-		<div class="row">
-			<div class="column2">
-			</div>
-			<div class="column">
-				<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
-					<img style="object-fit: contain; width: 56%; margin-top: 12%; margin-left: 21%;" class="logoBB" src="~/img/lenses/udmtrans.png" />
-				</a>
-				<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+	
+	
 
-					@*<img class="box" style="		margin-top: 10%;
-						object-fit: contain;margin-left: 9%;" src="~/img/lenses/udmlens1.png" />*@
-<img class="box" style=" 		margin-top: 10%;
+	$(function () {
+		debugger;
+		if (!navigator.cookieEnabled) {
+			document.getElementById("cookie-warning").style.display = "";
+
+		}
+		else {
+			document.getElementById("cookie-warning").style.display = "none";
+		}
+	});
+
+		//	if (!navigator.cookieEnabled) {
+		//	$(‘.cookie - banner’).delay(2000).fadeIn();
+		//	localStorage.setItem(‘cookieSeen’, ’shown’)
+		//};
+		//$(‘.close’).click(function () {
+		//	$(‘.cookie - banner’).fadeOut();
+		//})
+	
+</script>
+<html>
+<body>
+	@if (ViewBag.vsyLanguage == "tr-TR")
+	{
+	<div id="cookie-warning" class="note note-warning" style="display:none">
+		@*<h4 class="block"></h4>*@
+		<p>
+			Çerezlerinizin kapalı olduğunu tespit ettik!
+			Bu web sitesi çerezler kapalıyken kullanılamaz. Lütfen açık olduğundan emin olun.
+		</p>
+	</div>
+	}
+	else{
+<div id="cookie-warning" class="note note-warning" style="display:none; text-align:left;">
+	@*<h4 class="block"></h4>*@
+	<p>
+		We have detected that your cookies are turned off! This website cannot be used with cookies turned off. Please make sure it's turned on.
+	</p>
+</div>}
+
+	<div class="row">
+		<div class="column2">
+		</div>
+		<div class="column">
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+				<img style="object-fit: contain; width: 56%; margin-top: 12%; margin-left: 21%;" class="logoBB" src="~/img/lenses/udmtrans.png" />
+			</a>
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+
+				@*<img class="box" style="		margin-top: 10%;
+					object-fit: contain;margin-left: 9%;" src="~/img/lenses/udmlens1.png" />*@
+				<img class="box" style=" 		margin-top: 10%;
 		object-fit: contain;margin-left: 9%; padding:0.3%!important" src="~/img/lensbb.png" />
 			</a>
 
-				<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
-					<p style="text-align:center; margin-left:-2%;">
-						<span style="font-size: 1.5vW; font-family: Calibri, sans-serif; color: #1e4b8e">
-							Monofocal Toric IOL
-							<br /><b>Acriva<sup>UD</sup> BB T UDM 611</b>
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+				<p style="text-align:center; margin-left:-2%;">
+					<span style="font-size: 1.5vW; font-family: Calibri, sans-serif; color: #1e4b8e">
+						Monofocal Toric IOL
+						<br /><b>Acriva<sup>UD</sup> BB T UDM 611</b>
+					</span>
+				</p>
+			</a>
+
+		</div>
+		<div class="column3 vl">
+		</div>
+		<div class="column">
+			<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+				<img style="object-fit: contain; width: 54%; margin-left: 19%; margin-top: 10%;" class="logoTrinova" src="~/img/lenses/trinovatrans2.png" />
+			</a>
+			<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+				@*<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lenses/trinova3.png" />*@
+				<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lensTrinova.png" />
+			</a>
+			<div class="center">
+				<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+					<p style="text-align: center;margin-left: -7%;margin-top: 10%;">
+						<span style="		font-size: 1.5vW;font-family: Calibri, sans-serif;text-align: center;color: #1e4b8e">
+							Trifocal Toric IOL
+							<br />
+							<b>Acriva<sup>UD</sup><span style="color: #05847e!important"> Trinova</span> Toric</b>
 						</span>
 					</p>
 				</a>
 
+			</div>
 		</div>
-<div class="column3 vl">
-</div>
-<div class="column">
-	<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
-		<img style="object-fit: contain; width: 54%; margin-left: 19%; margin-top: 10%;" class="logoTrinova" src="~/img/lenses/trinovatrans2.png" />
-	</a>
-	<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
-		@*<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lenses/trinova3.png" />*@
-		<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lensTrinova.png" />
-	</a>
-	<div class="center">
-		<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
-			<p style="text-align: center;margin-left: -7%;margin-top: 10%;">
-				<span style="		font-size: 1.5vW;font-family: Calibri, sans-serif;text-align: center;color: #1e4b8e">
-					Trifocal Toric IOL
-					<br />
-					<b>Acriva<sup>UD</sup><span style="color: #05847e!important"> Trinova</span> Toric</b>
-				</span>
-			</p>
-		</a>
-		
-	</div>
-</div>
-<div class="column2">
-</div>
+		<div class="column2">
+		</div>
 	</div>
 
 </body>

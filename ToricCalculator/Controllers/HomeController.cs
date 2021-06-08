@@ -1,44 +1,64 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Resources;
 using System.Diagnostics;
 using ToricCalculator.Models;
 using ToricCalculator.Service.Abstract;
+using Microsoft.AspNetCore.Http;
+using ToricCalculator.Service.Model;
+using System.Threading.Tasks;
+using ToricCalculator.Service;
+using System.Collections.Generic;
+using System.Linq;
+using ToricCalculator.Cms.Models;
+using System.IO;
+using SelectPdf;
+using System.Net;
+using GemBox.Document;
 
 namespace ToricCalculator.Controllers
 {
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IHostingEnvironment _hostingEnvironment;
-		private readonly IStringLocalizer<HomeController> _localizer;
+		private readonly ILanguageManager _languageManager;
+		private readonly IEmailService _emailService;
+		private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
 		private readonly ICalculateManager _calculateManager;
 
 
-		public HomeController(ILogger<HomeController> logger, IHostingEnvironment hostingEnvironment, IStringLocalizer<HomeController> localizer, ICalculateManager calculateManager)
+
+		public HomeController(ILogger<HomeController> logger, ILanguageManager languageManager, IEmailService emailService, IStringLocalizer<SharedResource> sharedLocalizer, ICalculateManager calculateManager)
 		{
 			_logger = logger;
-			_hostingEnvironment = hostingEnvironment;
-			_localizer = localizer;
+			_languageManager = languageManager;
+			_emailService = emailService;
+			_sharedLocalizer = sharedLocalizer;
 			_calculateManager = calculateManager;
 		}
 
 		public IActionResult Index()
-		{
-
+		{			
 			return View();
 		}
 
 		public IActionResult Index2()
 		{
-
 			return View();
+		}
+		public static void testc()
+		{
+			var a = new Stopwatch();
+			a.Start();
+
+			a.Stop();
+			var test = a.Elapsed;
 		}
 		public IActionResult Index3(string key, string culture)
 		{
+			//var a = _calculateManager.GetFormScreen();
+			ViewBag.vsyLanguage = Request.Cookies["vsyLanguage"];
 			return View();
 		}
 
@@ -50,6 +70,11 @@ namespace ToricCalculator.Controllers
 		{
 			return View();
 		}
+		public IActionResult Index6()
+		{
+			return View();
+		}
+
 		public IActionResult Terms(string language, bool? approve)
 		{
 			if (language != null)
@@ -72,7 +97,39 @@ namespace ToricCalculator.Controllers
 		}
 		public IActionResult Form(GeneralModel model)
 		{
-			var a =_calculateManager.GetFormScreen();
+			var languageTrans = _languageManager.GetLanguageTrans(model.Culture);
+			LanguageKeys model2 = new LanguageKeys()
+			{
+				Culture = model.Culture,
+				Clinic = languageTrans.Where(w => w.Key == "Clinic").FirstOrDefault().Value,
+				Country = languageTrans.Where(w => w.Key == "Country").FirstOrDefault().Value,
+				Email = languageTrans.Where(w => w.Key == "Email").FirstOrDefault().Value,
+				FlatAxis = languageTrans.Where(w => w.Key == "FlatAxis").FirstOrDefault().Value,
+				FlatK = languageTrans.Where(w => w.Key == "FlatK").FirstOrDefault().Value,
+				IncisionLocation = languageTrans.Where(w => w.Key == "IncisionLocation").FirstOrDefault().Value,
+				IOLSphericalEquivalent = languageTrans.Where(w => w.Key == "IOLSphericalEquivalent").FirstOrDefault().Value,
+				IOLType = languageTrans.Where(w => w.Key == "IOLType").FirstOrDefault().Value,
+				Phone = languageTrans.Where(w => w.Key == "Phone").FirstOrDefault().Value,
+				ReferenceNo = languageTrans.Where(w => w.Key == "ReferenceNo").FirstOrDefault().Value,
+				SteepAxis = languageTrans.Where(w => w.Key == "SteepAxis").FirstOrDefault().Value,
+				SteepK = languageTrans.Where(w => w.Key == "SteepK").FirstOrDefault().Value,
+				SurgeonName = languageTrans.Where(w => w.Key == "SurgeonName").FirstOrDefault().Value,
+				SurgicallyInducedAstigmatism = languageTrans.Where(w => w.Key == "SurgicallyInducedAstigmatism").FirstOrDefault().Value,
+				Cancel = languageTrans.Where(w => w.Key == "Cancel").FirstOrDefault().Value,
+				Results = languageTrans.Where(w => w.Key == "Results").FirstOrDefault().Value,
+				DescSurgicallyInducedAstigmatism = languageTrans.Where(w => w.Key == "DescSurgicallyInducedAstigmatism").FirstOrDefault().Value,
+				Clean = languageTrans.Where(w => w.Key == "Clean").FirstOrDefault().Value,
+				LeftEye = languageTrans.Where(w => w.Key == "LeftEye").FirstOrDefault().Value,
+				NotificationSuccess = languageTrans.Where(w => w.Key == "NotificationSuccess").FirstOrDefault().Value,
+				Ok = languageTrans.Where(w => w.Key == "Ok").FirstOrDefault().Value,
+				RightEye = languageTrans.Where(w => w.Key == "RightEye").FirstOrDefault().Value,
+				Send = languageTrans.Where(w => w.Key == "Send").FirstOrDefault().Value,
+				TitleEyeInformations = languageTrans.Where(w => w.Key == "TitleEyeInformations").FirstOrDefault().Value,
+				TitleSurgeonInformations = languageTrans.Where(w => w.Key == "TitleSurgeonInformations").FirstOrDefault().Value,
+				WarningK1Bigger = languageTrans.Where(w => w.Key == "WarningK1Bigger").FirstOrDefault().Value,
+				WarningK2Bigger = languageTrans.Where(w => w.Key == "WarningK2Bigger").FirstOrDefault().Value,
+				Calculate = languageTrans.Where(w=>w.Key=="Calculate").FirstOrDefault().Value
+			};
 			ViewBag.vsyLanguage = Request.Cookies["vsyLanguage"];
 			ViewBag.vsyModel = Request.Cookies["vsyModel"];
 			ViewBag.vsyApprove = Request.Cookies["vsyApprove"];
@@ -80,31 +137,170 @@ namespace ToricCalculator.Controllers
 			if (String.IsNullOrEmpty(model.Key))
 			{
 				return RedirectToAction("Terms");
-
 			}
 			else if (Request.Cookies["vsyKey"] == model.Key)
 			{
-				return View(model);
+				return View(model2);
 			}
 			return RedirectToAction("Terms");
-
 		}
 
-		public void writter()
+		public IActionResult FormPdf(PdfModel model)
 		{
-			ResourceWriter rw = new ResourceWriter("Resources\\a.resx");
-			rw.AddResource("Name", "Test");
-			rw.AddResource("Ver", 1.0);
-			rw.AddResource("Author", "www.java2s.com");
-			rw.Generate();
-			rw.Close();
+			ViewBag.vsyLanguage = Request.Cookies["vsyLanguage"];
+			model.Culture = ViewBag.vsyLanguage;
+			ViewBag.vsyModel = Request.Cookies["vsyModel"];
+			ViewBag.vsyApprove = Request.Cookies["vsyApprove"];
+			return View(model);
+		}
+		public void selectpdf()
+		{
+			string url = "https://toriccalculator.azurewebsites.net/home/formpdf?email=erkatbihter@gmaaik.com&SurgeonName=Surgeon%20Bihter&Phone=8273238&Clinic=Clinic%201&ReferenceNo=Naz&FlatK=40&FlatAxis=0&SteepAxis=90&SteepK=45&IOLType=2&IOLSphericalEquivalent=44.50&SurgicallyInducedAstigmatism=1&IncisionLocation=0&Country=UK&EyeSelection=OD";
 
-			//ResourceManager rm = new ResourceManager("Resources\\a.resx", Assembly.GetExecutingAssembly());
-			////String strWebsite = rm.GetString("Website",CultureInfo.CurrentCulture);   
-			//String strName = rm.GetString("FirstName");
-			//Console.WriteLine(strName);
+
+			string s = "";
+
+			using (WebClient client = new WebClient())
+			{
+				s = client.DownloadString(url);
+			}
+
+
+			HtmlToPdf converter = new HtmlToPdf();
+			/*converter.Options.PdfPageSize = PdfPageSize.A4;
+			converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait;
+			converter.Options.WebPageWidth = 1024;*/
+
+			converter.Options.MinPageLoadTime = 2;
+			converter.Options.MaxPageLoadTime = 30;
+
+
+			Message message13 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+						"VSY hata mesajı", "convert url once" , "not1", "","","allignment", "residualAstigm.", "","");
+			_emailService.SendEmail3(message13);
+			PdfDocument doc = converter.ConvertUrl(url);
+			Message message113 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+						"VSY hata mesajı", "convert url sonra", "not1", "", "", "allignment", "residualAstigm.", "", "");
+			_emailService.SendEmail3(message113);
+			//PdfDocument doc2 = converter.ConvertHtmlString("<b>Selam Turgut</b><i>bugun nasılsın</i><a href='www.google.com'>google</a>");
+
+			// save pdf document
+			doc.Save("PdfTestNaz.pdf");
+			Message message1113 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+						"VSY hata mesajı", "pdf saved", "not1", "", "", "allignment", "residualAstigm.", "", "");
+			_emailService.SendEmail3(message1113);
+			// close pdf document
+			doc.Close();
+
+
+
+
+
+
+			//ComponentInfo.SetLicense("FREE-LIMITED-KEY");
+
+			//DocumentModel document = DocumentModel.Load(url, LoadOptions.HtmlDefault);
+
+			//// When reading any HTML content a single Section element is created.
+			//// We can use that Section element to specify various page options.
+			//Section section = document.Sections[0];
+			//PageSetup pageSetup = section.PageSetup;
+			//PageMargins pageMargins = pageSetup.PageMargins;
+			//pageMargins.Top = pageMargins.Bottom = pageMargins.Left = pageMargins.Right = 0;
+
+			//// Save output PDF file.
+			//document.Save("Output.pdf");
 		}
 
+
+		public void WritePdf2()
+		{
+			try
+			{
+				var url2 = "https://toriccalculator.azurewebsites.net/home/formpdf?email=erkatbihter@gmaaik.com&SurgeonName=Surgeon%20Bihter&Phone=8273238&Clinic=Clinic%201&ReferenceNo=Naz&FlatK=40&FlatAxis=0&SteepAxis=90&SteepK=45&IOLType=2&IOLSphericalEquivalent=44.50&SurgicallyInducedAstigmatism=1&IncisionLocation=0&Country=UK&EyeSelection=OD";
+			var chromePath = @"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe";
+				var output = Path.Combine(Environment.CurrentDirectory, @"pdf2.pdf");
+			
+				using (var p = new Process())
+			{
+				p.StartInfo.FileName = chromePath;
+				p.StartInfo.Arguments = $"--headless --disable-gpu --print-to-pdf={output} {url2}";
+				p.Start();
+				p.WaitForExit();
+			}
+			}
+			catch (Exception ex )
+			{
+				var message4 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+			"VSY hata email",ex.Message.ToString(), "", "not1", "", "", "allignment", "residualAstigm.", "");
+				_emailService.SendEmail3(message4);
+
+			}
+			
+
+		}
+		public IActionResult SendPdf(PdfModel pdf)
+		{
+			var guid = Request.Cookies["vsyGuidId"];
+			//var guid = "1a14d489-900f-4d88-89e7-b008e779c6e3";
+			pdf.GuidId = guid;
+			//var message5 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+			//	"VSY hata mesajı", guid, pdf.GuidId, "not1", pdf.SurgeonName, pdf.IOLType, "allignment", "residualAstigm.", pdf.EyeSelection);
+			//_emailService.SendEmail3(message5);
+			//var message3 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+			//	"VSY hata mesajı","not", pdf.GuidId,"not1", pdf.SurgeonName, pdf.IOLType, "allignment", "residualAstigm.", pdf.EyeSelection);
+			//_emailService.SendEmail3(message3);
+			try
+			{
+				selectpdf();
+				//_languageManager.WritePdf(pdf);
+				//_languageManager.SetPdfInfo(pdf);
+				//var message = new Message(new string[] { pdf.Recipient },
+				//"VSY Toric Calculator", pdf.MailContent, pdf.GuidId, pdf.ReferenceNo, pdf.SurgeonName, pdf.IOLType, "allignment", "residualAstigm.", pdf.EyeSelection);
+				//_emailService.SendEmail(message);
+
+
+
+			}
+			catch (Exception ex)
+			{
+				var message3 = new Message(new string[] { "bihter.erkat@smartapps.com.tr" },
+				"VSY hata mesajı", ex.Message.ToString() +Environment.NewLine + ex.StackTrace, pdf.GuidId, "not1", pdf.SurgeonName, pdf.IOLType, "allignment", "residualAstigm.", pdf.EyeSelection);
+				_emailService.SendEmail3(message3 );
+
+			}
+
+			return Json(new { Success=true});
+		}
+		public async void SendPdf2(PdfModel pdf)
+		{
+			var guid = Request.Cookies["vsyGuidId"];
+			pdf.GuidId = guid;
+			await Writte(pdf);
+			
+		}
+		public async Task Writte(PdfModel pdf)
+		{
+			await selam(pdf);
+			var message = new Message(new string[] { pdf.Recipient },
+				 "VSY Toric Calculator", pdf.MailContent, pdf.GuidId, pdf.ReferenceNo, pdf.SurgeonName, pdf.IOLType, "allignment", "residualAstigm.", pdf.EyeSelection);
+			 _emailService.SenEmail2(message);
+		}
+		public async Task selam(PdfModel pdf)
+		{
+			//_languageManager.WritePdf2(pdf);
+
+		}
+
+		public IActionResult Form2(GeneralModel model)
+		{
+			ViewBag.vsyLanguage = Request.Cookies["vsyLanguage"];
+			ViewBag.vsyModel = Request.Cookies["vsyModel"];
+			ViewBag.vsyApprove = Request.Cookies["vsyApprove"];
+			model.Culture = Request.Cookies["vsyLanguage"];
+
+			return View(model);
+		}
 
 		public void GetResult(float astigm, float steepAxis, float astigIncis, float incisAxis)
 		{
@@ -123,88 +319,6 @@ namespace ToricCalculator.Controllers
 			var crossedAstigm = Math.Sqrt(Math.Pow(cx, 2) + Math.Pow(cy, 2));
 			var crossedAxis = 45 - 0.5 * fi2;
 		}
-		//public void Screenshot()
-		//{
-		//	using var bitmap = new Bitmap(1920, 1080);
-		//	using (var g = Graphics.FromImage(bitmap))
-		//	{
-		//		g.CopyFromScreen(0, 0, 0, 0,
-		//		bitmap.Size, CopyPixelOperation.SourceCopy);
-		//	}
-		//	//bitmap.Save("filename.jpg", ImageFormat.Jpeg);
-
-		//}
-		//public IActionResult ConvertPdf()
-		//{
-		//	HtmlToPdfConverter converter = new HtmlToPdfConverter();
-
-		//	WebKitConverterSettings settings = new WebKitConverterSettings();
-		//	settings.WebKitPath = Path.Combine(_hostingEnvironment.ContentRootPath, "QtBinariesWindows");
-		//	converter.ConverterSettings = settings;
-
-		//	PdfDocument document = converter.Convert("https://toriccalculator.azurewebsites.net/Home/Terms");
-
-		//	MemoryStream ms = new MemoryStream();
-		//	document.Save(ms);
-		//	document.Close(true);
-
-		//	ms.Position = 0;
-		//	FileStreamResult fileStreamResult = new FileStreamResult(ms, "application/pdf");
-		//	fileStreamResult.FileDownloadName = "test2.pdf";
-		//	return fileStreamResult;
-		//}
-		//public IActionResult ExportToPdf()
-		//{
-		//	HtmlToPdfConverter htmlConverter = new HtmlToPdfConverter(HtmlRenderingEngine.WebKit);
-		//	WebKitConverterSettings settings = new WebKitConverterSettings();
-		//	settings.WebKitPath = Path.Combine(_hostingEnvironment.ContentRootPath, "QtBinariesWindows");
-		//	htmlConverter.ConverterSettings = settings;
-		//	PdfDocument document = htmlConverter.Convert("https://www.google.com");
-		//	MemoryStream stream = new MemoryStream();
-		//	document.Save(stream);
-		//	return File(stream.ToArray(), System.Net.Mime.MediaTypeNames.Application.Pdf, "Output.pdf");
-		//}
-
-		//	var astigm = document.getElementById("inducedAstigmatism").value; // (Cerrahiye Bağlı Gelişen Astigmatizma(*))
-		//	var steepAxis = document.getElementById("axisY").value; //steep Axis (Dik Eksen)
-		//	var astigIncis = 0.4;
-		//	var incisAxis = document.getElementById("kesiID").value; //kesi yeri, incis location
-
-		//	var cx = astigm * Math.cos(steepAxis * 2) + astigIncis * Math.cos(incisAxis * 2);
-		//	var cy = astigm * Math.sin(steepAxis * 2) + astigIncis * Math.sin(incisAxis * 2);
-		//	var al = Math.sqrt((Math.pow(cx, 2) + Math.pow(cy, 2)));
-		//	var q  = 45 - 0.5 * Math.atan(cx / cy);
-
-
-		//	var inducedAxis = incisAxis > 90 ? incisAxis - 90 : parseFloat(incisAxis) + 90;
-		//	var cx2 = parseFloat(astigm) * parseFloat(Math.cos(parseFloat(steepAxis) / parseFloat(28, 6478897566))) + parseFloat(parseFloat(astigIncis) * parseFloat(Math.cos(inducedAxis / parseFloat(28, 6478897566))));
-		//	var cy2 = parseFloat(astigm) * parseFloat(Math.sin(steepAxis / parseFloat(28, 6478897566))) + parseFloat(astigIncis) * parseFloat(Math.sin(inducedAxis / parseFloat(28, 6478897566) ));
-		//	var fi = Math.atan(cx2 / cy2) * parseFloat(57,2957795131);
-		//	var fi2 = cy2 < 0 ? fi - 180 : fi;
-
-		//	var crossedAstigm = Math.sqrt(Math.pow(cx, 2) + Math.pow(cy, 2));
-		//	var crossedAxis = 45 - 0.5 * fi2;
-		//}
-
-
-
-		//		mwh customera davet gönderdi,
-		//customer üye oldu yani REGISTER'dan üye oldu dim,
-
-		/* margin-top: 56%; */
-		/*margin: 20% 0% 0% 1%;
-			float: left;
-			background-color: #ffffff;
-			padding: 0%;*/
-		/* margin: 20% 0% 0% 1%; */
-		/*border-radius: 0px 10px 10px 0px;*/
-		/* padding: 3.6%; */
-		/*padding: 4%;*/
-
-
-		//function formules()
-		//{
-		//	debugger;
 
 		public IActionResult Privacy()
 		{

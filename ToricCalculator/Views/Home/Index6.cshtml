@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		font-family: Arial;
+		background-color: #e7e9ed !important;
+	}
+
+	.header {
+		text-align: center;
+		padding: 32px;
+	}
+
+	.row {
+		display: -ms-flexbox; /* IE10 */
+		display: flex;
+		-ms-flex-wrap: wrap; /* IE10 */
+		flex-wrap: wrap;
+		padding: 0 4px;
+	}
+
+	/* Create four equal columns that sits next to each other */
+	.column {
+		-ms-flex: 39%; /* IE10 */
+		flex: 39%;
+		max-width: 39%;
+		padding: 0 4px;
+	}
+
+	.column2 {
+		-ms-flex: 10%; /* IE10 */
+		flex: 10%;
+		max-width: 10%;
+		padding: 0 4px;
+	}
+
+	.column3 {
+		-ms-flex: 2%; /* IE10 */
+		flex: 2%;
+		max-width: 2%;
+		padding: 0 4px;
+	}
+
+	.column img {
+		margin-top: 8px;
+		vertical-align: middle;
+		width: 100%;
+	}
+
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@@media screen and (max-width: 800px) {
+		.column {
+			-ms-flex: 39%;
+			flex: 39%;
+			max-width: 39%;
+		}
+
+		.column2 {
+			-ms-flex: 10%;
+			flex: 10%;
+			max-width: 10%;
+		}
+
+		.column3 {
+			-ms-flex: 2%;
+			flex: 2%;
+			max-width: 2%;
+		}
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+	@@media screen and (max-width: 600px) {
+		.column {
+			-ms-flex: 39%;
+			flex: 39%;
+			max-width: 39%;
+		}
+
+		.column2 {
+			-ms-flex: 10%;
+			flex: 10%;
+			max-width: 10%;
+		}
+
+		.column3 {
+			-ms-flex: 2%;
+			flex: 2%;
+			max-width: 2%;
+		}
+	}
+
+	.vl {
+		border-left: 2px solid lightgrey;
+		height: 69vh;
+		margin-top: 3%;
+	}
+
+
+
+
+
+	.card {
+		background: #fff;
+		border-radius: 2px;
+		display: inline-block;
+		height: 300px;
+		margin: 1rem;
+		position: relative;
+		width: 300px;
+	}
+
+	.card-1 {
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	}
+
+		.card-1:hover {
+			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		}
+
+	.card-2 {
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	.card-3 {
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+
+	.card-4 {
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	}
+
+	.card-5 {
+		box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+	}
+
+
+
+	.box {
+		transition: box-shadow .3s;
+		margin: 14%;
+		border-radius: 10px;
+		border: 1px solid #ccc;
+		background: #fff;
+		float: left;
+		width: 80% !important;
+		height: 41% !important;
+	}
+
+		.box:hover {
+			box-shadow: 0 0 11px rgba(33,33,33,.2);
+		}
+
+
+
+	.logoBB {
+		/*object-fit: contain;
+		width: 56%;
+		margin-top: 12%;
+		margin-left: 21%;*/
+		margin-top: 12% !important;
+	}
+
+	.logoTrinova {
+		/*object-fit: contain;
+		width: 54%;
+		margin-left: 18%;
+		margin-top: 10%;*/
+		margin-top: 10% !important;
+	}
+
+	@@media only screen and (min-width: 481px) and (max-width: 768px) {
+		.box {
+			transition: box-shadow .3s;
+			margin: 14%;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			background: #fff;
+			float: left;
+			width: 80% !important;
+			height: 25% !important;
+		}
+
+			.box:hover {
+				box-shadow: 0 0 11px rgba(33,33,33,.2);
+			}
+
+		.logoBB {
+			margin-top: 30% !important;
+		}
+
+		.logoTrinova {
+			margin-top: 28% !important;
+		}
+	}
+
+	@@media only screen and (max-width: 480px) {
+		.box {
+			transition: box-shadow .3s;
+			margin: 14%;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			background: #fff;
+			float: left;
+			width: 80% !important;
+			height: 19% !important;
+		}
+
+			.box:hover {
+				box-shadow: 0 0 11px rgba(33,33,33,.2);
+			}
+
+		.logoBB {
+			margin-top: 60% !important;
+		}
+
+		.logoTrinova {
+			margin-top: 58% !important;
+		}
+	}
+</style>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<html>
+<body>
+	<div class="row">
+		<div class="column2">
+		</div>
+		<div class="column">
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+				<img style="object-fit: contain; width: 56%; margin-top: 12%; margin-left: 21%;" class="logoBB" src="~/img/lenses/udmtrans.png" />
+			</a>
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+
+				@*<img class="box" style="		margin-top: 10%;
+					object-fit: contain;margin-left: 9%;" src="~/img/lenses/udmlens1.png" />*@
+				<img class="box" style=" 		margin-top: 10%;
+		object-fit: contain;margin-left: 9%; padding:0.3%!important" src="~/img/lensbb.png" />
+			</a>
+
+			<a onclick="setCookie('vsyModel', '2', 300)" asp-controller="Home" asp-action="Terms">
+				<p style="text-align:center; margin-left:-2%;">
+					<span style="font-size: 1.5vW; font-family: Calibri, sans-serif; color: #1e4b8e">
+						Monofocal Toric IOL
+						<br /><b>Acriva<sup>UD</sup> BB T UDM 611</b>
+					</span>
+				</p>
+			</a>
+
+		</div>
+		<div class="column3 vl">
+		</div>
+		<div class="column">
+			<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+				<img style="object-fit: contain; width: 54%; margin-left: 19%; margin-top: 10%;" class="logoTrinova" src="~/img/lenses/trinovatrans2.png" />
+			</a>
+			<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+				@*<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lenses/trinova3.png" />*@
+				<img class="box" style="object-fit: contain; margin-top: 3%; margin-left: 6.3%;" src="~/img/lensTrinova.png" />
+			</a>
+			<div class="center">
+				<a onclick="setCookie('vsyModel', '1', 300)" asp-controller="Home" asp-action="Terms">
+					<p style="text-align: center;margin-left: -7%;margin-top: 10%;">
+						<span style="		font-size: 1.5vW;font-family: Calibri, sans-serif;text-align: center;color: #1e4b8e">
+							Trifocal Toric IOL
+							<br />
+							<b>Acriva<sup>UD</sup><span style="color: #05847e!important"> Trinova</span> Toric</b>
+						</span>
+					</p>
+				</a>
+
+			</div>
+		</div>
+		<div class="column2">
+		</div>
+	</div>
+
+</body>
+</html>

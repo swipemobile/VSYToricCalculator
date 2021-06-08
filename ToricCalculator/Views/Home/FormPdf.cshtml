@@ -1,0 +1,852 @@
+﻿@model ToricCalculator.Models.PdfModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<ToricCalculator.Service.SharedResource> SharedLocalizer
+@{
+	Layout = "_Layout";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	.imgsol {
+		position: absolute;
+		margin-top: 3%;
+		width: 8%;
+		margin-left: -10%;
+	}
+
+	.imgsag {
+		width: 8%;
+		margin-left: 2%;
+		margin-top: 3%;
+		position: absolute;
+	}
+
+	.infoRed {
+		position: absolute;
+		width: 69.4%;
+		margin-top: 10.9%;
+		margin-left: 1%;
+	}
+
+	.infoGreen {
+		position: absolute;
+		width: 69.4%;
+		margin-top: 11%;
+		margin-left: 34%;
+	}
+
+	.infoKesi {
+		position: absolute;
+		width: 27.4%;
+		margin-top: 8.5%;
+		margin-left: 70%;
+	}
+
+	.formStyle {
+		background-color: white;
+		border-radius: .42rem
+	}
+
+	.radiotext {
+		margin: 10px 10px 0px 0px;
+	}
+
+	.labelFloat {
+		color: #75b9df;
+	}
+
+	.row {
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+	}
+
+
+	p {
+		font-size: 0;
+	}
+
+	span {
+		width: 50%;
+		display: inline-block;
+	}
+
+		span.align-right {
+			text-align: right;
+		}
+
+		span a {
+			font-size: 16px;
+		}
+
+	.degreeIcon {
+		left: -5%;
+	}
+
+	.styleGroup {
+		margin-bottom: 0.75rem !important;
+	}
+
+	.parent {
+		position: relative;
+	}
+
+	.image5 {
+		position: absolute;
+		width: 69.4%;
+		margin-top: 49.6%;
+		margin-left: -84.1%;
+	}
+
+	.active.custom-file-control:before, .btn.active, .btn.focus, .btn:active, .btn:focus, .btn:hover, .custom-file-control:active:before, .custom-file-control:focus:before, .custom-file-control:hover:before, .focus.custom-file-control:before, .open > .btn.dropdown-toggle, .open > .dropdown-toggle.custom-file-control:before {
+		color: rgba(0,0,0,.87);
+		background-color: white;
+		border-color: white;
+	}
+
+	.image6 {
+		position: absolute;
+		width: 69%;
+		margin-top: 49.2%;
+		margin-left: -84.1%;
+	}
+
+	.image7 {
+		width: 100%;
+		margin-top: 1%;
+		margin-bottom: 4.1%;
+		margin-left: -0.5%;
+	}
+
+	.image8 {
+		position: absolute;
+		width: 76%;
+		margin-top: 9%;
+		margin-left: -87.6%;
+	}
+
+	.image9 {
+		position: absolute;
+		width: 106%;
+		top: -13px;
+		left: -21px;
+	}
+
+	.image10 {
+		position: absolute;
+		width: 15%;
+		top: 40%;
+		left: 78%;
+	}
+
+	.image12 {
+		position: absolute;
+		width: 30%;
+		margin-top: 14%;
+		margin-left: -64%;
+	}
+
+	.image13 {
+		position: absolute;
+		width: 69.5%;
+		margin-top: 49%;
+		margin-left: -84.3%;
+	}
+
+	.image15 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image16 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image17 {
+		position: absolute;
+		width: 33%;
+		top: 16%;
+		left: 34%;
+		transform: rotate( 0deg );
+	}
+
+	.image18 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image20 {
+		position: absolute;
+		width: 102%;
+		top: 21%;
+		left: -1%;
+		transform: rotate( 0deg );
+	}
+
+	.image22 {
+		position: absolute;
+		max-width: 161%;
+		margin-left: -34%;
+		margin-top: -6%;
+	}
+
+	.image30 {
+		position: absolute;
+		margin-top: 19.2%;
+		width: 38.5%;
+		margin-left: -68.9%;
+	}
+
+	.image40 {
+		position: absolute;
+		margin-top: 19%;
+		width: 37.6%;
+		margin-left: -68.5%;
+	}
+
+	.dikFlat {
+		right: 5%;
+	}
+
+	.dik {
+		right: 5%;
+	}
+
+	.calculateText {
+		margin-top: 45%;
+		position: absolute;
+		margin-left: -55.5%;
+		width: 13%;
+		text-align: center;
+		background-color: black;
+		border-radius: 3rem;
+		padding: 3%;
+	}
+
+	#calculateText {
+		text-align: center;
+		color: beige;
+		font-size: 12px;
+	}
+
+	.svg-icon.svg-icon-primary svg g [fill] {
+		fill: darkred !important;
+	}
+
+	.table td, .table th {
+		padding: .60rem 1rem 0rem 0rem;
+	}
+
+	.tableStyle {
+		padding: 0rem 2.25rem;
+	}
+
+	.card-body {
+		padding: 2.5% 1% 2.2% 1%;
+	}
+
+	.custom-file-control, .form-control, .is-focused .custom-file-control, .is-focused .form-control {
+		background-image: linear-gradient( 0deg,#75b9df 2px,rgba(63,81,181,0) 0),linear-gradient( 0deg,rgba(0,0,0,.26) 1px,transparent 0);
+	}
+
+	.popover-body {
+		padding: 0rem 0rem 0.5rem 0.5rem;
+		color: #212529;
+	}
+
+	table {
+		width: 100% !important;
+	}
+
+	div.centertext {
+		text-align: center;
+	}
+
+	.div label.lefttext {
+		text-align: left;
+	}
+
+	.div label.righttext {
+		text-align: left;
+	}
+
+	.testK {
+		color: white !important;
+		border-radius: .42rem !important;
+		padding-top: 2% !important;
+		padding-bottom: 2% !important;
+	}
+
+	.card {
+		border: 0;
+		box-shadow: 0px 0px 0px 0 rgb(0 0 0 / 12%);
+	}
+
+	.stylecheck {
+		margin-top: 15% !important;
+	}
+</style>
+<script>
+	$(function () {
+		document.getElementById("image5").style.transform = ("rotate(" + -@Model.FlatAxis + "deg)");
+		document.getElementById("image6").style.transform = ("rotate(" + -@Model.SteepAxis + "deg)");
+		document.getElementById("image12").style.transform = ("rotate(" + parseInt(90 - parseInt(@Model.IncisionLocation)) + "deg)");
+				var vsyM = '@ViewBag.vsyModel';
+		if (vsyM == "1")
+		{
+			document.getElementById("image30").style.display = "";
+			document.getElementById("image40").style.display = "none";
+			document.getElementById("image30").style.transform = ("rotate(" + @Model.SteepAxis + "deg)");
+		}
+		 else
+		{
+			document.getElementById("image40").style.display = "";
+			document.getElementById("image30").style.display = "none";
+			document.getElementById("image40").style.transform = ("rotate(" + @Model.SteepAxis + "deg)");
+		}
+
+		//var coutrySelected = getCookie('vsycountry');
+		//if (coutrySelected == "US") {
+		//	document.getElementById("US").selected = "selected";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else if (coutrySelected == "UK") {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "selected";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else if (coutrySelected == "France") {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "selected";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else if (coutrySelected == "Spain") {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "selected";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else if (coutrySelected == "Turkey") {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "selected";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else if (coutrySelected == "Italy") {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "selected";
+		//	document.getElementById("SelectedCountry").selected = "";
+
+		//}
+		//else {
+		//	document.getElementById("US").selected = "";
+		//	document.getElementById("UK").selected = "";
+		//	document.getElementById("France").selected = "";
+		//	document.getElementById("Spain").selected = "";
+		//	document.getElementById("Turkey").selected = "";
+		//	document.getElementById("Italy").selected = "";
+		//	document.getElementById("SelectedCountry").selected = "selected";
+		//}
+
+		});
+
+	$(function () {
+		debugger;
+		var deg = '@Model.EyeSelection';
+		if (deg == "OS") {
+			document.getElementById("eyesag").style.border = " double gray";
+			document.getElementById("eyesol").style.border = ""
+
+			document.getElementById("leftItem").innerText = "NASAL";
+			document.getElementById("rightItem").innerText = "TEMPORAL";
+
+			//document.getElementById("idcheck1").checked = true;
+			//document.getElementById("idcheck2").checked = false;
+		}
+		else {
+			document.getElementById("eyesag").style.border = ""
+			document.getElementById("eyesol").style.border = " double gray"
+
+			document.getElementById("leftItem").innerText = "TEMPORAL";
+			document.getElementById("rightItem").innerText = "NASAL";
+
+			//document.getElementById("idcheck1").checked = false;
+			//document.getElementById("idcheck2").checked = true;
+		}
+	});
+
+	$(function ()
+	{
+
+			var options = [];
+			var vsym = '@Model.IOLSphericalEquivalent';
+			var $select = $(".1-100");
+			for (i = -20; i <= 45; i = i + 0.5) {
+				if (i.toFixed(2) == vsym) {
+					var option = "<option selected value='" + i.toFixed(2) + "'>" + i.toFixed(2) + "</option>"
+				}
+				else {
+					var option = "<option value='" + i.toFixed(2) + "'>" + i.toFixed(2) + "</option>"
+				}
+				options.push(option);
+			}
+			$select.html(options);
+		});
+</script>
+<div id="style-row" class="row" style="background-color: #e7e9ed; border-radius: .92rem; padding: 1%">
+	<div id="style-cont1" style="padding:0%" class="col-7">
+		<div class="formStyle">
+			<form>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["ReferenceNo"]</label>
+								<input type="text" class="form-control" id="referans" value="@Model.ReferenceNo">
+							</fieldset>
+						</div>
+						<div class="col-md-9">
+							<div class="form-group">
+								<label class="label-floating">Ürün Seçimi</label>
+								<select onchange="setCookie('vsyModel', this.value, 300)" id="items" name="delivery" class="form-control">
+									@if (Model.IOLType == "1")
+									{
+										<option id="trinova" value="1" selected="selected">Trifocal Toric IOL Acriva Trinova</option>
+									}
+									else
+									{
+										<option id="trinova" value="1">Trifocal Toric IOL Acriva Trinova</option>
+
+									}
+									@if (Model.IOLType == "2")
+									{
+										<option selected="selected" id="udm" value="2">Monofocal Toric IOL Acriva BB T UDM 611</option>
+									}
+									else
+									{
+										<option id="udm" value="2">Monofocal Toric IOL Acriva BB T UDM 611</option>
+									}
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="formStyle">
+			<form>
+				<div style="border-radius:.92rem" class="card-header flex-wrap border-0  pb-0">
+					<div style="margin-top:3%;" class="card-title">
+						<p style="text-align: left;FONT-SIZE:105%;color: #00226a;font-weight: bolder;">
+							<span class="card-label text-uppercase" id="">CERRAH BİLGİLERİ</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["SurgeonName"]</label>
+								<input class="form-control" type="text" value="@Model.SurgeonName" id="surgeonName" />
+							</fieldset>
+						</div>
+						<div class="col-md-4">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["Clinic"]</label>
+								<input onchange="setCookie('vsyclinic', this.value,300)" class="form-control" type="text" value="@Model.Clinic" id="clinic" />
+							</fieldset>
+						</div>
+						<div class="col-md-4">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["Phone"]</label>
+								<input onchange="setCookie('vsyphone', this.value,300)" class="form-control" type="text" value="@Model.Phone" id="phone" />
+							</fieldset>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["Email"]</label>
+								<input class="form-control" type="text" value="@Model.Email" id="email" />
+							</fieldset>
+						</div>
+						<div class="col-md-6">
+							<fieldset class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">@SharedLocalizer["Country"]</label>
+								<select onchange="setCookie('vsycountry', this.value, 300)" name="country" id="country" class="form-control">
+									@if (Model.Country == "US")
+									{
+										<option selected="selected" id="US" value="US">United States</option>
+									}
+									else
+									{
+										<option id="US" value="US">United States</option>
+
+									}
+									@if (Model.Country == "UK")
+									{
+										<option selected="selected" id="UK" value="UK">United Kingdom</option>
+									}
+									else
+									{
+										<option id="UK" value="UK">United Kingdom</option>
+									}
+									@if (Model.Country == "France")
+									{
+										<option selected="selected" id="France" value="France">France</option>
+									}
+									else
+									{
+										<option id="France" value="France">France</option>
+									}
+									@if (Model.Country == "Germany")
+									{
+										<option selected="selected" id="Germany" value="Germany">Germany</option>
+									}
+									else
+									{
+										<option id="Germany" value="Germany">Germany</option>
+									}
+									@if (Model.Country == "Spain")
+									{
+										<option selected="selected" id="Spain" value="Spain">Spain</option>
+									}
+									else
+									{
+										<option id="Spain" value="Spain">Spain</option>
+									}
+									@if (Model.Country == "Italy")
+									{
+										<option selected="selected" id="Italy" value="Italy">Italy</option>
+									}
+									else
+									{
+										<option id="Italy" value="Italy">Italy</option>
+									}
+									@if (Model.Country == "Turkey")
+									{
+										<option selected="selected" id="Turkey" value="Turkey">Turkey</option>
+									}
+									else
+									{
+										<option id="Turkey" value="Turkey">Turkey</option>
+									}
+									@if (Model.Country == "SelectedCountry")
+									{
+										<option id="SelectedCountry" value="SelectedCountry" selected="selected">Seçiniz</option>
+									}
+									k
+								</select>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="formStyle">
+			<form>
+				<div style="border-radius:.92rem; margin-bottom:2%" class="card-header flex-wrap border-0  pb-0">
+					<div style="margin-top:1%;" class="card-title">
+						<p style="text-align: left;FONT-SIZE: 105%;color: #00226a;font-weight: bolder;">
+							<span class="card-label text-uppercase" id="">GÖZ BİLGİLERİ</span>
+						</p>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="row">
+								<div style="margin-left:2%" class="form-check">
+									<input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+									<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">p(Diyoptri)</label>
+								</div>
+								<div style="margin-left:2%" class="form-check">
+									<input type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+									<label style="font-size: 86%;" class="form-check-label" for="materialChecked">r(Milimetre)</label>
+									<hr style="width: 257%; margin-right: 313%; margin-left: -149%; border: 0.1px solid #e5e5e5; margin-top: 11%;" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							@*<div style="color: #75b9df; font-size: 15px;" class="centertext">
+									GÖZ SEÇİMİ
+								</div>*@
+							<div class="row">
+								<div style="margin-left:2%" class="form-check">
+									@if (Model.EyeSelection == "OD")
+									{
+										<input type="radio" class="form-check-input" id="materialUnchecked" name="eyeRadios" checked="checked">
+									}
+									else
+									{
+										<input type="radio" class="form-check-input" id="materialUnchecked" name="eyeRadios">
+									}
+									<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">Sağ Göz (OD)</label>
+								</div>
+								<div style="margin-left:2%" class="form-check">
+									@if (Model.EyeSelection == "OS")
+									{
+										<input type="radio" class="form-check-input" id="materialChecked" name="eyeRadios2" checked="checked">
+									}
+									else
+									{
+										<input type="radio" class="form-check-input" id="materialChecked" name="eyeRadios2">
+									}
+									<label style="font-size: 86%;" class="form-check-label" for="materialChecked">Sol Göz (OS)</label>
+									<hr style="width: 257%; margin-right: 313%; margin-left: -149%; border: 0.1px solid #e5e5e5; margin-top: 11%;" />
+								</div>
+							</div>
+						</div>
+
+						@*<div class="col-md-6">
+								<div class="form-group row">
+									<label for="exampleInputEmail1" class="bmd-label-floating">GİL Sferik Gücü</label>
+									<input class="form-control" type="text" value="@Model.IOLSphericalEquivalent" id="IOLSphericalEquivalent" />
+								</div>
+							</div>*@
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputEmail1" id="flatKLabel" class="bmd-label-floating">K1 (Flat K) 30.00D~60.00D</label>
+								<input onchange="flatkClick(this)" class="form-control" type="text" value="@Model.FlatK" id="flatK" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="bmd-label-floating">Flat Eksen 0° - 180°</label>
+								<input maxlength="3" oninput="senkronX(this)" value="@Model.FlatAxis" class="form-control" type="text" id="axisX" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputEmail1" id="steepKLabel" class="bmd-label-floating">K2 (Dik K) 30.00D~60.00D</label>
+								<input onchange="steepkClick(this)" class="form-control" type="text" value="@Model.SteepK" id="steepK" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Dik Eksen 0° - 180°</label>
+								<input maxlength="3" value="@Model.SteepAxis" class="form-control" type="text" id="axisY" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						@*<div class="col-md-6">
+								<div class="form-group">
+									<label for="inducedAstigmatism" class="bmd-label-floating">Cerrahiye Bağlı Gelişen Astigmatizma 0.00D - 2.50D</label>
+									<input onchange="controlinducedAstigmatism(this)" class="form-control" type="text" value="@Model.SurgicallyInducedAstigmatism" id="inducedAstigmatism" />
+								</div>
+							</div>*@
+						<div class="col-md-6">
+							<div class="form-group row">
+								<label for="exampleInputEmail1" class="bmd-label-floating">GİL Sferik Gücü</label>
+								<input class="form-control" type="text" value="@Model.IOLSphericalEquivalent" id="IOLSphericalEquivalent" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Kesi Yeri 0° - 360° </label>
+								<input style="background-color:transparent" maxlength="3" oninput="kesi(this)" value="@Model.IncisionLocation" class="form-control" type="text" id="kesiID" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="inducedAstigmatism" class="bmd-label-floating">Cerrahiye Bağlı Gelişen Astigmatizma 0.00D - 2.50D</label>
+								<input onchange="controlinducedAstigmatism(this)" class="form-control" type="text" value="@Model.SurgicallyInducedAstigmatism" id="inducedAstigmatism" />
+							</div>
+						</div>
+					</div>
+					<br />
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-5" id="style-col5">
+		<div class="formStyle">
+			<div class="parent">
+				<div class="form-group styleGroup">
+					<p style="text-align: left;FONT-SIZE: 105%; padding: 4% 4% 0% 4%;color: #00226a;font-weight: bolder;">
+						@if (Model.EyeSelection == "OS")
+						{
+							<span id="leftItem" style="float:left; text-align:left;">NASAL</span>
+							<span id="rightItem" style="float:right; text-align:right; margin-bottom:13%">TEMPORAL</span>
+						}
+						else
+						{
+							<span id="leftItem" style="float: left; text-align: left; margin-bottom: 13% ">TEMPORAL</span>
+							<span id="rightItem" style="float:right; text-align:right;">NASAL</span>
+						}
+					</p>
+					<div>
+						<a><img style="border-style:double; border-color:gray" class="imgsol" id="eyesol" src="~/img/sol.png" /></a>
+						<a><img class="imgsag" id="eyesag" src="~/img/sag.png" /></a>
+					</div>
+					@*<div style="color: #75b9df; font-size: 15px;" class="centertext">
+							GÖZ SEÇİMİ
+						</div>
+						<div class="row" style="margin-left:26%!important">
+							<div style="margin-left:2%" class="form-check">
+								@if (Model.EyeSelection == "OD")
+								{
+									<input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+								}
+								else
+								{
+									<input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios">
+								}
+								<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">Sağ Göz (OD)</label>
+							</div>
+							<div style="margin-left:2%" class="form-check">
+								@if (Model.EyeSelection == "OS")
+								{
+									<input type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios" checked="checked">
+								}
+								else
+								{
+									<input type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+								}
+								<label style="font-size: 86%;" class="form-check-label" for="materialChecked">Sol Göz (OS)</label>
+							</div>
+						</div>
+						<hr style="margin-left: 23%; margin-right: 19%;  border: 0.5px solid #75b9df;" />*@
+				</div>
+
+				<div>
+					<img id="image7" class="image7" src="~/img/lenses/degree.png" />
+					<img id="image8" class="image8" src="~/img/lenses/eye2.png" />
+					<img id="image30" class="image30" src="~/img/lenses/lensTrinova.png" />
+					<img id="image40" class="image40" src="~/img/lenses/lensUDM 1.png" />
+					<img id="image5" class="image5" src="~/img/redline.png" />
+					<img id="image6" class="image6" src="~/img/greenline2.png" />
+					<img style="" id="image13" class="image13" src="~/img/resultLine.png" />
+					<img id="image12" class="image12" src="~/img/yeni3.png" style="" />
+					<button style="" class="calculateText" id="calculateId">
+						<div id="calculateText">0</div>
+					</button>
+				</div>
+				<div class="row">
+					<img id="infoRed" class="col-4 infoRed" src="~/img/redline.png" />
+					<img id="infoGreen" class="col-4 infoGreen" src="~/img/greenline2.png" />
+					<img id="infoKesi" class="col-4 infoKesi" src="~/img/yeni3.png" />
+				</div>
+				<div class="row">
+					<div style="margin-bottom:11.5%" class="col-4 textesClass"><small>@SharedLocalizer["FlatAxis"]</small></div>
+					<div style="text-align:center;" class="col-4"><small>@SharedLocalizer["SteepAxis"]</small></div>
+					<div class="col-4 locClass"><small>@SharedLocalizer["IncisionLocation"]</small></div>
+				</div>
+
+			</div>
+		</div>
+		<div style="margin-top:3.3%;" id="results" class="formStyle">
+			<div style="border-radius:.42rem" class="card card-custom gutter-b">
+				<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+					<div class="card-title">
+						<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+							Results
+						</h3>
+					</div>
+				</div>
+				<div style="padding: 0rem 2.25rem;" class="card-body tableStyle">
+					<table class="table table-separate" id="">
+						<thead>
+							<tr>
+								<th>&nbsp;#</th>
+								<th>IOL</th>
+								<th>Power</th>
+								<th>Axis</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+								<td>130°</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

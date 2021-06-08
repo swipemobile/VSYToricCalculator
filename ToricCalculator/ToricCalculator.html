@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&culture=tr-TR -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> - ToricCalculator</title>
+
+	<script src="./- ToricCalculator_files/jquery-1.9.1.min.js.indir"></script><style></style>
+	<script src="./- ToricCalculator_files/jquery-migrate-1.2.1.min.js.indir"></script>
+
+<link href="./- ToricCalculator_files/plugins.min.css" rel="stylesheet">
+	<link href="./- ToricCalculator_files/site.css" rel="stylesheet">
+	<link href="./- ToricCalculator_files/flag-icon.css" rel="stylesheet">
+	<link href="./- ToricCalculator_files/bootstrap-material-design.css" rel="stylesheet">
+	<link href="./- ToricCalculator_files/css" rel="stylesheet">
+	<link href="./- ToricCalculator_files/icon" rel="stylesheet">
+	<link rel="stylesheet" href="./- ToricCalculator_files/docsearch.min.css">
+	<link href="./- ToricCalculator_files/docs.min.css" rel="stylesheet">
+	<link rel="apple-touch-icon" href="https://mdbootstrap.github.io//bootstrap-material-design/apple-touch-icon.png">
+
+	<style>
+		.navbar-light .navbar-nav .nav-link {
+			color: #00226a;
+		}
+		 #toast-container > .toast-error {
+			background-color: #BD362F;
+		}
+		#toast-container > .toast-success {
+			background-color: #4aa252;
+		}
+		.contstyle {
+			margin-bottom: 3.5% !important;
+		}
+
+		@media only screen and (min-width:270px) and (max-width: 767px) {
+			.contstyle {
+				margin-bottom: 11% !important;
+			}
+		}
+
+
+		@media only screen and (min-width:768px) and (max-width: 1200px) {
+			.contstyle {
+				margin-bottom: 8% !important;
+			}
+		}
+	</style>
+</head>
+<body style="background-color:white ; font-family: &#39;Trebuchet MS&#39;, sans-serif;">
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<!--<div class="container">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+					<img style="width:55%" src="~/img/logo.png" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1 float-right">-->
+			<!--<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Language</a>
+						</li>
+					</ul>
+				</div>
+			</div>-->
+
+			<div class="container">
+				<div class="col-xs-9">
+					<a class="navbar-brand" href="https://toriccalculator.azurewebsites.net/">
+						<img style="width:55%; margin-left:-44%;" src="./- ToricCalculator_files/logo.png">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+				<div class="col-xs-3">
+					<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+						<ul class="navbar-nav flex-grow-1 float-right">
+							<li class="nav-item">
+								<div class="d-lg-block d-none dropdown">
+									<a style="	font-size: 0.8vw; font-weight: bolder; background-color: #00226a; color: white; border-radius: .42rem !important; padding-top: 10%; padding-bottom: 10%;" class="nav-link dropdown-toggle" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#" id="navbarDropdownMenuLink78" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TR</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink78">
+										<a onclick="setCookie(&#39;vsyLanguage&#39;, &#39;tr-TR&#39;, 300)" class="dropdown-item" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#"><span class="flag-icon flag-icon-tr"></span>&nbsp;&nbsp; Türkçe</a>
+										<a onclick="setCookie(&#39;vsyLanguage&#39;, &#39;en-US&#39;, 300)" class="dropdown-item" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#"><span class="flag-icon flag-icon-us"></span>&nbsp;&nbsp; English</a>
+										<a onclick="setCookie(&#39;vsyLanguage&#39;, &#39;de-DE&#39;, 300)" class="dropdown-item" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#"><span class="flag-icon flag-icon-de"></span>&nbsp;&nbsp; Deutsch</a>
+										<a onclick="setCookie(&#39;vsyLanguage&#39;, &#39;es-ES&#39;, 300)" class="dropdown-item" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#"><span class="flag-icon flag-icon-es"></span> &nbsp;&nbsp;Español</a>
+										<a onclick="setCookie(&#39;vsyLanguage&#39;, &#39;fr-CA&#39;, 300)" class="dropdown-item" href="https://toriccalculator.azurewebsites.net/Home/Form?key=98a14db1-ac5f-4d8d-9aed-abb662bf00f0&amp;culture=tr-TR#"><span class="flag-icon flag-icon-fr"></span> &nbsp;&nbsp;Français</a>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container contstyle">
+		<main role="main" class="pb-3">
+			
+<script src="./- ToricCalculator_files/jquery.min.js.indir"></script>
+<link href="./- ToricCalculator_files/toastr.css" rel="stylesheet">
+<script src="./- ToricCalculator_files/ui-toastr.min.js.indir"></script>
+<script src="./- ToricCalculator_files/toastr.js.indir"></script>
+<style>
+	.formStyle {
+		background-color: white;
+		border-radius: .42rem
+	}
+
+	.radiotext {
+		margin: 10px 10px 0px 0px;
+	}
+
+	.labelFloat {
+		color: #75b9df;
+	}
+
+	.row {
+		margin-right: 0px !important;
+		margin-left: 0px !important;
+	}
+
+
+	p {
+		font-size: 0; /* Fixes inline block spacing */
+	}
+
+	span {
+		width: 50%;
+		display: inline-block;
+	}
+
+		span.align-right {
+			text-align: right;
+		}
+
+		span a {
+			font-size: 16px;
+		}
+
+	.degreeIcon {
+		left: -5%;
+	}
+
+	/*.styleHeight {
+				height: calc(0.8em + 1.3rem + 2px);
+			}*/
+
+	.styleGroup {
+		margin-bottom: 0.75rem !important;
+	}
+
+	.parent {
+		position: relative;
+	}
+
+	.image5 {
+		position: absolute;
+		width: 69.4%;
+		margin-top: 49.6%;
+		margin-left: -84.1%;
+	}
+
+	.active.custom-file-control:before, .btn.active, .btn.focus, .btn:active, .btn:focus, .btn:hover, .custom-file-control:active:before, .custom-file-control:focus:before, .custom-file-control:hover:before, .focus.custom-file-control:before, .open > .btn.dropdown-toggle, .open > .dropdown-toggle.custom-file-control:before {
+		color: rgba(0,0,0,.87);
+		background-color: white;
+		border-color: white;
+	}
+
+	.image6 {
+		position: absolute;
+		width: 69%;
+		margin-top: 49.2%;
+		margin-left: -84.1%;
+	}
+
+	.image7 {
+		width: 100%;
+		margin-top: 1%;
+		margin-bottom: 4.1%;
+		margin-left: -0.5%;
+	}
+
+	.image8 {
+		position: absolute;
+		width: 76%;
+		margin-top: 9%;
+		margin-left: -87.6%;
+	}
+
+	.image9 {
+		position: absolute;
+		width: 106%;
+		top: -13px;
+		left: -21px;
+	}
+
+	.image10 {
+		position: absolute;
+		width: 15%;
+		top: 40%;
+		left: 78%;
+	}
+
+	.image12 {
+		position: absolute;
+		width: 30%;
+		margin-top: 14%;
+		margin-left: -64%;
+	}
+
+	.image13 {
+		position: absolute;
+		width: 69.5%;
+		margin-top: 49%;
+		margin-left: -84.3%;
+	}
+
+	.image15 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image16 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image17 {
+		position: absolute;
+		width: 33%;
+		top: 16%;
+		left: 34%;
+		transform: rotate( 0deg );
+	}
+
+	.image18 {
+		position: absolute;
+		width: 40%;
+		top: 45%;
+		left: 6%;
+	}
+
+	.image20 {
+		position: absolute;
+		width: 102%;
+		top: 21%;
+		left: -1%;
+		transform: rotate( 0deg );
+	}
+
+	.image22 {
+		position: absolute;
+		max-width: 161%;
+		margin-left: -34%;
+		margin-top: -6%;
+	}
+
+	.image30 {
+		position: absolute;
+		margin-top: 19.2%;
+		width: 38.5%;
+		margin-left: -68.9%;
+	}
+
+	.image40 {
+		position: absolute;
+		margin-top: 19%;
+		width: 37.6%;
+		margin-left: -68.5%;
+	}
+
+	.dikFlat {
+		right: 5%;
+	}
+
+	.dik {
+		right: 5%;
+	}
+
+	.calculateText {
+		margin-top: 45%;
+		position: absolute;
+		margin-left: -55.5%;
+		width: 13%;
+		text-align: center;
+		background-color: black;
+		border-radius: 3rem;
+		padding: 3%;
+	}
+
+	#calculateText {
+		text-align: center;
+		color: beige;
+		font-size: 12px;
+	}
+
+	.svg-icon.svg-icon-primary svg g [fill] {
+		/*fill: #B25C3F !important;*/
+		fill: darkred !important;
+	}
+
+
+
+	.table td, .table th {
+		padding: .60rem 1rem 0rem 0rem;
+		/*vertical-align: middle;*/
+	}
+
+	.tableStyle {
+		padding: 0rem 2.25rem;
+	}
+
+	.card-body {
+		padding: 2.5% 1% 2.2% 1%;
+	}
+
+	.custom-file-control, .form-control, .is-focused .custom-file-control, .is-focused .form-control {
+		background-image: linear-gradient( 0deg,#75b9df 2px,rgba(63,81,181,0) 0),linear-gradient( 0deg,rgba(0,0,0,.26) 1px,transparent 0);
+	}
+
+	.popover-body {
+		padding: 0rem 0rem 0.5rem 0.5rem;
+		color: #212529;
+	}
+
+	table {
+		width: 100% !important;
+		/*display:block;*/
+	}
+
+	div.centertext {
+		text-align: center;
+	}
+
+	.div label.lefttext {
+		text-align: left;
+	}
+
+	.div label.righttext {
+		text-align: left;
+	}
+
+	.testK {
+		color: white !important;
+		border-radius: .42rem !important;
+		padding-top: 2% !important;
+		padding-bottom: 2% !important;
+	}
+
+	.card {
+		border: 0;
+		box-shadow: 0px 0px 0px 0 rgb(0 0 0 / 12%);
+	}
+
+	.placeholderLoading {
+		padding: 9px 0px 9px 0px;
+		background-color: #e7e9ed;
+	}
+
+/*	@media(min-width: 576px) {
+		.col-sm-7 {
+			max-width: 57.333333% !important;
+		}
+	}
+*/
+	@media only screen and (max-width: 370px) {
+		#results {
+			height: 79.7%;
+		}
+
+		#resultPreview {
+			height: 79.7%;
+		}
+
+		/*table {
+			width: 100% !important;*/
+			/*display: block !important;*/
+			/*overflow-x: auto !important;
+		}*/
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width:370px) and (max-width: 399px) {
+		#results {
+			height: 79.5%;
+		}
+
+		#resultPreview {
+			height: 79.5%;
+		}
+
+	/*	table {
+			width: 100% !important;
+			display: block !important;
+			overflow-x: auto !important;
+		}*/
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width : 400px) and (max-width: 479px) {
+		#results {
+			height: 78%;
+		}
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#resultPreview {
+			height: 78%;
+		}
+
+	/*	table {
+			width: 100% !important;
+			display: block !important;
+			overflow-x: auto !important;
+		}*/
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width : 480px) and (max-width: 499px) {
+		#results {
+			height: 75.6%;
+		}
+
+		#resultPreview {
+			height: 75.6%;
+		}
+/*
+		table {
+			width: 100% !important;
+			display: block !important;
+			overflow-x: auto !important;
+		}*/
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width : 500px) and (max-width: 516px) {
+		#results {
+			height: 75.3%;
+		}
+
+		#resultPreview {
+			height: 75.3%;
+		}
+		/*	.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width : 516px) and (max-width: 530px) {
+		#results {
+			height: 74.8%;
+		}
+
+		#resultPreview {
+			height: 74.8%;
+		}
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width : 530px) and (max-width: 560px) {
+		#results {
+			height: 73.3%;
+		}
+
+		#resultPreview {
+			height: 73.3%;
+		}
+		/*.tableStyle {
+			padding: 0rem !important;
+		}*/
+		.tableStyle {
+			padding: 0rem 2.25rem;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+
+
+
+	@media only screen and (min-width : 560px) and (max-width: 578px) {
+		#results {
+			height: 72.3%;
+		}
+
+		#resultPreview {
+			height: 72.3%;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+	/*	@media only screen and (min-width : 580px) and (max-width: 581px) {
+			#results {
+				height: 73.5%;
+			}
+
+			#resultPreview {
+				height: 73.5%;
+			}
+		}*/
+	@media only screen and (min-width : 578px) and (max-width: 768px) {
+		#results {
+			height: 73.38%;
+		}
+
+		#resultPreview {
+			height: 73.38%;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			min-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			min-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+	/*	@media only screen and (min-width : 580px) and (max-width: 768px) {
+			#results {
+				height: 73.33%;
+			}
+
+			#resultPreview {
+				height: 73.33%;
+			}
+		}*/
+
+
+
+	@media only screen and (min-width: 768px) and (max-width: 992px) {
+		#results {
+			height: 49.1%;
+		}
+
+		#resultPreview {
+			height: 49.1%;
+		}
+
+		#style-row {
+			display: block;
+		}
+
+		.col-7 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		.col-5 {
+			flex: 0 0 58.33333%;
+			max-width: 100%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width: 990px) and (max-width: 1200px) {
+		#results {
+			height: 40.5%;
+		}
+
+		#resultPreview {
+			height: 40.5%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 1.4%;
+		}
+	}
+
+	@media only screen and (min-width: 1200px) {
+		#results {
+			height: 32.85%;
+		}
+
+		#resultPreview {
+			height: 32.85%;
+		}
+
+		#style-col5 {
+			margin: 0% !important;
+			padding: 0% 0% 0% 1.4%;
+		}
+		/*
+		@media only screen and (min-width: 2000px) and (max-width : 2200px) {
+			#results {
+				height: 39%;
+			}
+
+			#resultPreview {
+				height: 39%;
+			}
+		}*/
+	}
+
+	.stylecheck {
+		margin-top: 15% !important;
+	}
+
+
+
+	#snackbar {
+		visibility: hidden;
+		min-width: 250px;
+		margin-left: -125px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		padding: 16px;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		bottom: 30px;
+		font-size: 17px;
+	}
+
+		#snackbar.show {
+			visibility: visible;
+			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+
+	@-webkit-keyframes fadein {
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadein {
+		from {
+			bottom: 0;
+			opacity: 0;
+		}
+
+		to {
+			bottom: 30px;
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes fadeout {
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
+	}
+
+	@keyframes fadeout {
+		from {
+			bottom: 30px;
+			opacity: 1;
+		}
+
+		to {
+			bottom: 0;
+			opacity: 0;
+		}
+	}
+</style>
+<script>
+
+		//$('#kt_datatable1').DataTable({
+		//	responsive: true
+		//});
+
+	$(function () {
+
+			document.getElementById('surgeonName').value = getCookie('vsysurgeonName');
+			document.getElementById('clinic').value = getCookie('vsyclinic');
+			document.getElementById('phone').value = getCookie('vsyphone');
+			document.getElementById('email').value = getCookie('vsyemail');
+			document.getElementById('country').value = getCookie('vsycountry');
+
+			var coutrySelected = getCookie('vsycountry');
+			if (coutrySelected == "US") {
+				document.getElementById("US").selected = "selected";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "UK") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "selected";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "France") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "selected";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Spain") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "selected";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Turkey") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "selected";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else if (coutrySelected == "Italy") {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "selected";
+				document.getElementById("SelectedCountry").selected = "";
+
+			}
+			else {
+				document.getElementById("US").selected = "";
+				document.getElementById("UK").selected = "";
+				document.getElementById("France").selected = "";
+				document.getElementById("Spain").selected = "";
+				document.getElementById("Turkey").selected = "";
+				document.getElementById("Italy").selected = "";
+				document.getElementById("SelectedCountry").selected = "selected";
+			}
+
+		});
+
+		$(function () {country
+			var options = [];
+			var $select = $(".1-100");
+			for (i = -20; i <= 45; i = i + 0.5) {
+				var option = "<option value='" + i.toFixed(2) + "'>" + i.toFixed(2) + "</option>"
+				options.push(option);
+			}
+			var optionSelect = "<option value='selectedVal' selected='selected'>Seçiniz</option>";
+			options.push(optionSelect);
+			$select.html(options);
+		});
+
+		function eyeControl(deg) {
+			if (deg == "left") {
+				document.getElementById("leftItem").innerText = "NAZAL";
+				document.getElementById("rightItem").innerText = "TEMPORAL";
+			}
+			else {
+				document.getElementById("leftItem").innerText = "TEMPORAL";
+				document.getElementById("rightItem").innerText = "NAZAL";
+			}
+		}
+		function ChangeMM() {
+			//document.getElementById("dik").innerText = "mm";
+			//document.getElementById("dikFlat").innerText = "mm";
+			setCookie('vsyNotasyon', 'mm', 300);
+			document.getElementById("flatKLabel").textContent = "K1 (Flat K) 5mm-10mm";
+			document.getElementById("steepKLabel").textContent = "K2 (Dik K) 5mm-10mm";
+		}
+		function ChangeD() {
+			//document.getElementById("dik").innerText = "D";
+			//document.getElementById("dikFlat").innerText = "D";
+			setCookie('vsyNotasyon', 'd', 300);
+			document.getElementById("flatKLabel").textContent = "K1 (Flat K) 30.00D~60.00D";
+			document.getElementById("steepKLabel").textContent = "K2 (Dik K) 30.00D~60.00D";
+		}
+
+
+		$(document).ready(function () {
+			var vsyM = '2';
+			if (vsyM == "1") {
+				document.getElementById("trinova").selected = "selected";
+				document.getElementById("udm").selected = "";
+			}
+			else {
+				document.getElementById("trinova").selected = "";
+				document.getElementById("udm").selected = "selected";
+			}
+		});
+
+		$(document).ready(function () {
+			$('#desc2').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title2').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper2').html();
+				}
+
+			});
+			$('#desc').popover('hide');
+		});
+		function validClose() {
+			document.getElementById("validmessage").style.display = "none";
+		}
+		function messageWarningClose() {
+			document.getElementById("messageWarn").style.display = "none";
+		}
+		function validClose360() {
+			document.getElementById("validmessage360").style.display = "none";
+		}
+
+		function funcAxisY(deg) {
+			//if (deg.value == "")
+			//{
+			//	document.getElementById("image6").style.display = "none";
+			//}
+
+			//else {
+			//	if (deg.value > 180) {
+			//		document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+			//		document.getElementById("axisY").style.color = "#ff2d2d";
+			//		document.getElementById("validmessage").style.display = "";
+			//	}
+			//	else {
+			//		document.getElementById("image6").style.display = "";
+			//		document.getElementById("image6").style.transform = ("rotate(" + deg.value + "deg)");
+			//		document.getElementById("validmessage").style.display = "none";
+			//		document.getElementById("axisY").style.backgroundColor = "";
+			//		document.getElementById("axisY").style.color = "";
+			//	}
+			//}
+		}
+
+
+
+		function func(deg) {
+			//if (deg.value == "") document.getElementById("image5").style.display = "none";
+			//else {
+			//	if (deg.value > 180) {
+			//		document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+			//		document.getElementById("axisX").style.color = "#ff2d2d";
+			//		/*document.getElementById("validmessage").style.display = "";*/
+			//	}
+			//	else {
+			//		document.getElementById("image5").style.transform = ("rotate(" + deg.value + "deg)");
+			//		document.getElementById("image5").style.display = "";
+			//		/*document.getElementById("validmessage").style.display = "none";*/
+			//		document.getElementById("axisX").style.backgroundColorViewBag = "";
+			//		document.getElementById("axisX").style.color = "";
+			//	}
+			//}
+		}
+
+		function senkronX(deg) {
+			document.getElementById("axisY").oninput = "";
+			if (deg.value == "") document.getElementById("image5").style.display = "none";
+			else {
+				if (deg.value > 180) {
+					document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+					document.getElementById("axisX").style.color = "#ff2d2d";
+					/*document.getElementById("validmessage").style.display = "";*/
+				}
+				else {
+					document.getElementById("image5").style.transform = ("rotate(" + -deg.value + "deg)");
+					document.getElementById("image5").style.display = "";
+					/*document.getElementById("validmessage").style.display = "none";*/
+					document.getElementById("axisX").style.backgroundColor = "";
+					document.getElementById("axisX").style.color = "";
+				}
+			}
+
+			if (deg.value != null && deg.value != "") {
+				if (deg.value < 91) {
+					document.getElementById("axisY").value = Math.abs(parseInt(deg.value) + 90);
+					document.getElementById("image6").style.transform = ("rotate(" + Math.abs(-parseInt(deg.value) + 90) + "deg)");
+				}
+				else {
+					document.getElementById("axisY").value = Math.abs(deg.value - 90);
+					document.getElementById("image6").style.transform = ("rotate(" + Math.abs(-deg.value) + "deg)");
+				}
+			}
+			else document.getElementById("axisY").value = "";
+			if (deg.value == "") {
+				document.getElementById("image6").style.display = "none";
+			}
+			else document.getElementById("image6").style.display = "";
+			if (document.getElementById("axisY").value < 181) {
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+			}
+			else {
+				document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+				document.getElementById("axisY").style.color = "#ff2d2d";
+			}
+			document.getElementById("axisY").oninput = function () { senkronY(this); };
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+			}
+		}
+		function senkronY(deg) {
+			document.getElementById("axisX").oninput = "";
+
+			if (deg.value == "") {
+				document.getElementById("image6").style.display = "none";
+			}
+
+			else {
+				if (deg.value > 180) {
+					document.getElementById("axisY").style.backgroundColor = "#FFF0F0";
+					document.getElementById("axisY").style.color = "#ff2d2d";
+					/*document.getElementById("validmessage").style.display = "";*/
+				}
+				else {
+					document.getElementById("image6").style.display = "";
+					document.getElementById("image6").style.transform = ("rotate(" + -deg.value + "deg)");
+					/*document.getElementById("validmessage").style.display = "none";*/
+					document.getElementById("axisY").style.backgroundColor = "";
+					document.getElementById("axisY").style.color = "";
+				}
+			}
+
+
+			if (deg.value != null && deg.value != "") {
+				if (deg.value < 91) {
+					document.getElementById("axisX").value = Math.abs(parseInt(deg.value) + 90);
+					document.getElementById("image5").style.transform = ("rotate(" + Math.abs(-parseInt(deg.value) + 90) + "deg)");
+				}
+				else {
+					document.getElementById("axisX").value = Math.abs(deg.value - 90);
+					document.getElementById("image5").style.transform = ("rotate(" + Math.abs(-deg.value) + "deg)");
+				}
+			}
+			else document.getElementById("axisX").value = "";
+			if (deg.value == "") {
+				document.getElementById("image5").style.display = "none";
+			}
+			else document.getElementById("image5").style.display = "";
+			if (document.getElementById("axisX").value < 181) {
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+			}
+			else {
+				document.getElementById("axisX").style.backgroundColor = "#FFF0F0";
+				document.getElementById("axisX").style.color = "#ff2d2d";
+			}
+			document.getElementById("axisX").oninput = function () { senkronX(this); };
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("axisX").style.backgroundColor = "";
+				document.getElementById("axisX").style.color = "";
+				document.getElementById("axisY").style.backgroundColor = "";
+				document.getElementById("axisY").style.color = "";
+			}
+
+		}
+		function kesi(deg) {
+			if (deg.value == "" || deg.value == null) {
+				document.getElementById("image12").style.display = "none";
+				document.getElementById("kesiID").style.backgroundColor = "";
+				document.getElementById("kesiID").style.color = "";
+			}
+
+			else {
+				if (deg.value > 360) {
+					document.getElementById("kesiID").style.backgroundColor = "#FFF0F0";
+					document.getElementById("kesiID").style.color = "#ff2d2d";
+				//	document.getElementById("validmessage360").style.display = "";
+				}
+				else {
+					//document.getElementById("validmessage360").style.display = "none";
+					document.getElementById("kesiID").style.backgroundColor = "";
+					document.getElementById("kesiID").style.color = "";
+					document.getElementById("image12").style.display = "";
+					document.getElementById("image12").style.transform = ("rotate(" + parseInt(90 - parseInt(deg.value) ) + "deg)");
+				}
+			}
+		}
+		function flatkClick(deg) {
+			if (getCookie("vsyNotasyon") == "d") {
+				if (deg.value > 60 || deg.value < 30) {
+					document.getElementById("flatK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("flatK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("flatK").style.backgroundColor = "";
+					document.getElementById("flatK").style.color = "";
+				}
+			}
+			else {
+				if (deg.value > 10 || deg.value < 5) {
+					document.getElementById("flatK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("flatK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("flatK").style.backgroundColor = "";
+					document.getElementById("flatK").style.color = "";
+				}
+			}
+
+
+		if (deg.value == null || deg.value == "") {
+			document.getElementById("flatK").style.backgroundColor = "";
+			document.getElementById("flatK").style.color = "";
+			}
+		}
+		function steepkClick(deg) {
+			if (getCookie("vsyNotasyon") == "d") {
+				if (deg.value > 60 || deg.value < 30) {
+					document.getElementById("steepK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("steepK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("steepK").style.backgroundColor = "";
+					document.getElementById("steepK").style.color = "";
+				}
+			}
+			else {
+				if (deg.value > 10 || deg.value < 5) {
+					document.getElementById("steepK").style.backgroundColor = "#FFF0F0";
+					document.getElementById("steepK").style.color = "#ff2d2d";
+				}
+				else {
+					document.getElementById("steepK").style.backgroundColor = "";
+					document.getElementById("steepK").style.color = "";
+				}
+			}
+
+			if (deg.value == null || deg.value == "") {
+				document.getElementById("steepK").style.backgroundColor = "";
+				document.getElementById("steepK").style.color = "";
+			}
+		}
+
+		function controlinducedAstigmatism(deg) {
+			if (deg.value > 2.5 || deg.value < 0) {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "#FFF0F0";
+				document.getElementById("inducedAstigmatism").style.color = "#ff2d2d";
+			}
+			else {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+				document.getElementById("inducedAstigmatism").style.color = "";
+			}
+			if (deg.value == null || deg.value == "") {
+				document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+				document.getElementById("inducedAstigmatism").style.color = "";
+			}
+		}
+
+
+
+		function formuleResult()
+		{
+			var result =225;
+			return result;
+		}
+
+		function changeModel()
+		{
+
+		}
+
+		function calculate(deg) {
+			/*formules();*/
+			//if (document.getElementById("flatK").value == "" || document.getElementById("steepK").value == "") {
+			//	document.getElementById("messageWarn").style.display = "";
+			//}
+		/*else {*/
+
+			document.getElementById("results").style.display = "";
+			document.getElementById("resultPreview").style.display = "none";
+				document.getElementById("image13").style.display = "";
+				document.getElementsByClassName("calculateText")[0].style.display = "";
+				document.getElementById("calculateText").innerText = formuleResult() + "°";
+				document.getElementById("image13").style.transform = ("rotate(" + parseInt( -formuleResult()) + "deg)");
+				//var x = document.getElementById("results");
+				//x.style.display = "block";
+		/*document.getElementById("messageWarn").style.display = "none";*/
+			var vsyM = '2';
+			if (vsyM == "1") {
+					document.getElementById("image30").style.display = "";
+					document.getElementById("image30").style.transform = ("rotate(" + parseInt(90 - formuleResult()) + "deg)");
+					document.getElementById("image40").style.display = "none";
+				}
+				else {
+					document.getElementById("image30").style.display = "none";
+					document.getElementById("image40").style.transform = ("rotate(" + parseInt(90 - formuleResult()) + "deg)");
+					document.getElementById("image40").style.display = "";
+			}
+
+			//if (deg) {
+			//	var x = document.getElementById("snackbarSuccess");
+			//	x.display = "show";
+			//	setTimeout(function () { x.display = x.display.replace("show", ""); }, 3000);
+			//}
+			//else {
+			//	var x = document.getElementById("snackbarFail");
+			//	x.display = "show";
+			//	setTimeout(function () { x.display = x.display.replace("show", ""); }, 3000);
+			//}
+
+			//}
+			toastr.success('Hesaplama işlemi başarıyla tamamlandı.', '', { timeOut: 1500 });
+		}
+
+		//$(document).on('click', '.close', function () {
+		//	$('.tooltipster-base').hide();
+		//});
+		function clean() {
+			//var x = document.getElementById("results");
+			//x.style.display = "none";
+			document.getElementById("results").style.display = "none";
+			document.getElementById("resultPreview").style.display = "";
+
+			document.getElementById("axisX").value = "";
+			document.getElementById("axisY").value = "";
+			document.getElementById("kesiID").value = "";
+			/*document.getElementById("surgeonName").value = "";*/
+			document.getElementById("referans").value = "";
+			//document.getElementById("country").value = "";
+			//document.getElementById("phone").value = "";
+			//document.getElementById("email").value = "";
+			//document.getElementById("clinic").value = "";
+			document.getElementById("flatK").value = "";
+			document.getElementById("steepK").value = "";
+			document.getElementById("inducedAstigmatism").value = "";
+			document.getElementById("image5").style.display = "none";
+			document.getElementById("image6").style.display = "none";
+			document.getElementById("image12").style.display = "none";
+			document.getElementById("image13").style.display = "none";
+			document.getElementById("calculateId").style.display = "none";
+			document.getElementById("image30").style.display = "none";
+			document.getElementById("image40").style.display = "none";
+
+			//clean error colors
+			document.getElementById("axisY").style.backgroundColor = "";
+			document.getElementById("axisY").style.color = "";
+			document.getElementById("axisX").style.backgroundColor = "";
+			document.getElementById("axisX").style.color = "";
+			document.getElementById("kesiID").style.backgroundColor = "";
+			document.getElementById("kesiID").style.color = "";
+			document.getElementById("flatK").style.backgroundColor = "";
+			document.getElementById("flatK").style.color = "";
+			document.getElementById("steepK").style.backgroundColor = "";
+			document.getElementById("steepK").style.color = "";
+			document.getElementById("inducedAstigmatism").style.backgroundColor = "";
+			document.getElementById("inducedAstigmatism").style.color = "";
+		}
+
+
+		$(document).ready(function () {
+			$('#desc').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper').html();
+				}
+
+			});
+			$('#desc2').popover('hide');
+		});
+
+
+
+		$(document).on('click', '.close-desc', function () {
+			$('#desc').popover('hide');
+		});
+
+
+		$(document).ready(function () {
+			$('#desc2').popover({
+				html: true,
+				title: function () {
+					return $('.popover_title2').html();
+				},
+				content: function () {
+					return $('#popover_content_wrapper2').html();
+				}
+
+			});
+			$('#desc').popover('hide');
+		});
+
+		$(document).on('click', '.close-desc2', function () {
+			$('#desc2').popover('hide');
+		});
+
+
+
+	function genPDF() {
+		var doc = new jsPDF();
+	doc.text(20, 20, 'Hello world!');
+	doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+	doc.addPage();
+	doc.text(20, 20, 'Do you like that?');
+
+	doc.save('Test.pdf');
+	}
+
+		function flatKClick() {
+			//if (document.getElementById("flatK").value < document.getElementById("steepK").value) {
+			//	document.getElementById("messageK").style.display = "";
+			//}
+			//else {
+			//	document.getElementById("messageK").style.display = "none";
+			//}
+		}
+		function steepKClick() {
+			//if (document.getElementById("flatK").value < document.getElementById("steepK").value) {
+			//	document.getElementById("messageK").style.display = "";
+			//}
+			//else {
+			//	document.getElementById("messageK").style.display = "none";
+			//}
+		}
+		function messageKClose() {
+			/*document.getElementById("messageK").style.display = "none";*/
+		}
+</script>
+
+<div id="style-row" class="row" style="background-color: #e7e9ed; border-radius: .92rem; padding: 1%">
+	<div id="style-cont1" style="padding:0%" class="col-7">
+		<div class="formStyle">
+			<form>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-3">
+							<fieldset class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Referans No</label>
+								<input type="text" class="form-control" id="referans" value="">
+							</fieldset>
+						</div>
+						<div class="col-md-9">
+							<div class="form-group bmd-form-group is-filled">
+								<label class="label-floating bmd-label-static">Ürün Seçimi</label>
+								<select onchange="setCookie(&#39;vsyModel&#39;, this.value, 300)" id="items" name="delivery" class="form-control">
+									<option id="trinova" value="1" selected="">Trifocal Toric IOL Acriva Trinova</option>
+									<option id="udm" value="2">Monofocal Toric IOL Acriva BB T UDM 611</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="formStyle">
+			<form>
+				<div style="border-radius:.92rem" class="card-header flex-wrap border-0  pb-0 darkerColor">
+					<div class="card-title">
+						<p style="text-align: left;FONT-SIZE:105%;color: #00226a;font-weight: bolder;">
+							<span class="card-label text-uppercase" id="">CERRAH BİLGİLERİ</span>
+							<span class="btn close-desc2" id="desc" style="float:right;" data-original-title="" title="">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style=" -ms-transform: rotate(360deg); -webkit-transform: rotate( 360deg ); transform: rotate( 360deg );float:right; -ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="#ff8f1f"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25c.09-.656.54-1.134 1.342-1.134c.686 0 1.314.343 1.314 1.168c0 .635-.374.927-.965 1.371c-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486c.609-.463 1.244-.977 1.244-2.056c0-1.511-1.276-2.241-2.673-2.241c-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927c.609 0 1.028-.394 1.028-.927c0-.552-.42-.94-1.029-.94c-.584 0-1.009.388-1.009.94z"></path></g></svg>
+							</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<fieldset class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Ad Soyad</label>
+								<input onchange="setCookie(&#39;vsysurgeonName&#39;, this.value, 300)" class="form-control" type="text" value="" id="surgeonName">
+							</fieldset>
+						</div>
+						<div class="col-md-4">
+							<fieldset class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Klinik</label>
+								<input onchange="setCookie(&#39;vsyclinic&#39;, this.value,300)" class="form-control" type="text" value="" id="clinic">
+							</fieldset>
+						</div>
+						<div class="col-md-4">
+							<fieldset class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Telefon</label>
+								<input onchange="setCookie(&#39;vsyphone&#39;, this.value,300)" class="form-control" type="text" value="" id="phone">
+							</fieldset>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">E-Posta</label>
+								<input onchange="setCookie(&#39;vsyemail&#39;, this.value,300)" class="form-control" type="text" value="" id="email">
+							</fieldset>
+						</div>
+						<div class="col-md-6">
+							<fieldset class="form-group bmd-form-group is-filled">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Ülke</label>
+								<select onchange="setCookie(&#39;vsycountry&#39;, this.value, 300)" name="country" id="country" class="form-control">
+									<option id="SelectedCountry" value="SelectedCountry" selected="selected">Seçiniz</option>
+									<option id="US" value="US">United States</option>
+									<option id="UK" value="UK">United Kingdom</option>
+									<option id="France" value="France">France</option>
+									<option id="Germany" value="Germany">Germany</option>
+									<option id="Spain" value="Spain">Spain</option>
+									<option id="Italy" value="Italy">Italy</option>
+									<option id="Turkey" value="Turkey">Turkey</option>
+								</select>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="formStyle">
+			<form>
+				<div style="border-radius:.92rem;" class="card-header flex-wrap border-0  pb-0 darkerColor">
+					<div class="card-title">
+						<p style="text-align: left;FONT-SIZE: 105%;color: #00226a;font-weight: bolder;">
+							<span class="card-label text-uppercase" id="">GÖZ BİLGİLERİ</span>
+							<span id="desc2" class="btn close-desc" style="float:right;" data-original-title="" title="">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style=" -ms-transform: rotate(360deg); -webkit-transform: rotate( 360deg ); transform: rotate( 360deg );float:right; -ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="#ff8f1f"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25c.09-.656.54-1.134 1.342-1.134c.686 0 1.314.343 1.314 1.168c0 .635-.374.927-.965 1.371c-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486c.609-.463 1.244-.977 1.244-2.056c0-1.511-1.276-2.241-2.673-2.241c-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927c.609 0 1.028-.394 1.028-.927c0-.552-.42-.94-1.029-.94c-.584 0-1.009.388-1.009.94z"></path></g></svg>
+							</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-6" style="margin-top:5%">
+
+
+
+
+
+
+							<div class="row">
+								<div style="margin-left:2%" class="form-check">
+									<input onchange="ChangeD()" type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+									<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">p(Diyoptri)</label>
+								</div>
+								<div style="margin-left:2%" class="form-check">
+									<input onclick="ChangeMM()" type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+									<label style="font-size: 86%;" class="form-check-label" for="materialChecked">r(Milimetre)</label>
+									<hr style="width: 257%; margin-right: 313%; margin-left: -149%; border: 0.1px solid #e5e5e5; margin-top: 11%;">
+								</div>
+							</div>
+
+
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group row bmd-form-group is-filled">
+								<label for="exampleInputEmail1" class="bmd-label-floating">GİL Sferik Gücü(*)</label>
+								<select name="delivery" class="1-100 form-control"><option value="-20.00">-20.00</option><option value="-19.50">-19.50</option><option value="-19.00">-19.00</option><option value="-18.50">-18.50</option><option value="-18.00">-18.00</option><option value="-17.50">-17.50</option><option value="-17.00">-17.00</option><option value="-16.50">-16.50</option><option value="-16.00">-16.00</option><option value="-15.50">-15.50</option><option value="-15.00">-15.00</option><option value="-14.50">-14.50</option><option value="-14.00">-14.00</option><option value="-13.50">-13.50</option><option value="-13.00">-13.00</option><option value="-12.50">-12.50</option><option value="-12.00">-12.00</option><option value="-11.50">-11.50</option><option value="-11.00">-11.00</option><option value="-10.50">-10.50</option><option value="-10.00">-10.00</option><option value="-9.50">-9.50</option><option value="-9.00">-9.00</option><option value="-8.50">-8.50</option><option value="-8.00">-8.00</option><option value="-7.50">-7.50</option><option value="-7.00">-7.00</option><option value="-6.50">-6.50</option><option value="-6.00">-6.00</option><option value="-5.50">-5.50</option><option value="-5.00">-5.00</option><option value="-4.50">-4.50</option><option value="-4.00">-4.00</option><option value="-3.50">-3.50</option><option value="-3.00">-3.00</option><option value="-2.50">-2.50</option><option value="-2.00">-2.00</option><option value="-1.50">-1.50</option><option value="-1.00">-1.00</option><option value="-0.50">-0.50</option><option value="0.00">0.00</option><option value="0.50">0.50</option><option value="1.00">1.00</option><option value="1.50">1.50</option><option value="2.00">2.00</option><option value="2.50">2.50</option><option value="3.00">3.00</option><option value="3.50">3.50</option><option value="4.00">4.00</option><option value="4.50">4.50</option><option value="5.00">5.00</option><option value="5.50">5.50</option><option value="6.00">6.00</option><option value="6.50">6.50</option><option value="7.00">7.00</option><option value="7.50">7.50</option><option value="8.00">8.00</option><option value="8.50">8.50</option><option value="9.00">9.00</option><option value="9.50">9.50</option><option value="10.00">10.00</option><option value="10.50">10.50</option><option value="11.00">11.00</option><option value="11.50">11.50</option><option value="12.00">12.00</option><option value="12.50">12.50</option><option value="13.00">13.00</option><option value="13.50">13.50</option><option value="14.00">14.00</option><option value="14.50">14.50</option><option value="15.00">15.00</option><option value="15.50">15.50</option><option value="16.00">16.00</option><option value="16.50">16.50</option><option value="17.00">17.00</option><option value="17.50">17.50</option><option value="18.00">18.00</option><option value="18.50">18.50</option><option value="19.00">19.00</option><option value="19.50">19.50</option><option value="20.00">20.00</option><option value="20.50">20.50</option><option value="21.00">21.00</option><option value="21.50">21.50</option><option value="22.00">22.00</option><option value="22.50">22.50</option><option value="23.00">23.00</option><option value="23.50">23.50</option><option value="24.00">24.00</option><option value="24.50">24.50</option><option value="25.00">25.00</option><option value="25.50">25.50</option><option value="26.00">26.00</option><option value="26.50">26.50</option><option value="27.00">27.00</option><option value="27.50">27.50</option><option value="28.00">28.00</option><option value="28.50">28.50</option><option value="29.00">29.00</option><option value="29.50">29.50</option><option value="30.00">30.00</option><option value="30.50">30.50</option><option value="31.00">31.00</option><option value="31.50">31.50</option><option value="32.00">32.00</option><option value="32.50">32.50</option><option value="33.00">33.00</option><option value="33.50">33.50</option><option value="34.00">34.00</option><option value="34.50">34.50</option><option value="35.00">35.00</option><option value="35.50">35.50</option><option value="36.00">36.00</option><option value="36.50">36.50</option><option value="37.00">37.00</option><option value="37.50">37.50</option><option value="38.00">38.00</option><option value="38.50">38.50</option><option value="39.00">39.00</option><option value="39.50">39.50</option><option value="40.00">40.00</option><option value="40.50">40.50</option><option value="41.00">41.00</option><option value="41.50">41.50</option><option value="42.00">42.00</option><option value="42.50">42.50</option><option value="43.00">43.00</option><option value="43.50">43.50</option><option value="44.00">44.00</option><option value="44.50">44.50</option><option value="45.00">45.00</option><option value="selectedVal" selected="selected">Seçiniz</option></select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" id="flatKLabel" class="bmd-label-floating">K1 (Flat K) 30.00D~60.00D</label>
+								<input onchange="flatkClick(this)" class="form-control" type="text" value="" id="flatK">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label class="bmd-label-floating">Flat Eksen 0° - 180°</label>
+								<input maxlength="3" oninput="senkronX(this)" value="" class="form-control" type="text" id="axisX">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" id="steepKLabel" class="bmd-label-floating">K2 (Dik K) 30.00D~60.00D</label>
+								<input onchange="steepkClick(this)" class="form-control" type="text" value="" id="steepK">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Dik Eksen 0° - 180°</label>
+								<input maxlength="3" oninput="senkronY(this)" value="" class="form-control" type="text" id="axisY">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label for="inducedAstigmatism" class="bmd-label-floating">Cerrahiye Bağlı Gelişen Astigmatizma 0.00D - 2.50D</label>
+								<input onchange="controlinducedAstigmatism(this)" class="form-control" type="text" value="" id="inducedAstigmatism">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group bmd-form-group">
+								<label for="exampleInputEmail1" class="bmd-label-floating">Kesi Yeri 0° - 360° </label>
+								<input style="background-color:transparent" maxlength="3" oninput="kesi(this)" value="" class="form-control" type="text" id="kesiID">
+							</div>
+						</div>
+					</div>
+					<br>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<button onclick="clean()" style="		margin-right: 1%;
+		background-color: #ff8f1f;
+		border-color: #ff8f1f;
+		border-radius: .42rem;
+		border: transparent;
+		padding: 6px 13px;
+		font-weight: bolder;
+		font-size: 91%;
+" type="button" class="btn-warning">
+									TEMİZLE
+								</button>
+								<button onclick="calculate(true)" style="
+		background-color: #20a4d5;
+		border-color: #20a4d5;
+		border-radius: .42rem;
+		border: transparent;
+		padding: 6px 13px;
+		font-weight: bolder;
+		font-size: 91%;
+" type="button" class="btn-success text-uppercase">
+									HESAPLA
+								</button>
+
+
+								<div class="modal fade" id="sendPdf" tabindex="-1" role="dialog" aria-labelledby="">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+												<h4 class="modal-title" id="myModalLabel">Send mail with attached document</h4>
+											</div>
+
+											<div class="modal-body">
+												<div class="form-group bmd-form-group">
+													<label class="bmd-label-static">Recipient</label>
+													<input type="password" name="sifre" class="form-control">
+													<label class="bmd-label-static">Subject</label>
+													<input type="password" name="sifre" class="form-control">
+													<label class="bmd-label-static">Message</label>
+													<input type="password" name="sifre" class="form-control">
+													<label class="bmd-label-static">Signature</label>
+													<input type="password" name="sifre" class="form-control">
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" style="background-color:black; color:white !important;" class="btn" data-dismiss="modal">Kapat</button>
+												<button type="submit" class="btn btn-info">Gönder</button>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+
+								<div style="margin-top:10%;" class="modal fade" id="UyeOl" tabindex="-1" role="dialog" aria-labelledby="">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group">
+													<label>Ön Yazı</label>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button style="background-color:#FF214F; color:white !important;" class="btn" data-dismiss="modal">Kapat</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+
+
+							</div>
+						</div>
+					</div>
+					<div class="row" id="validmessage360" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+						<p style="margin:1%!important" id="messagevalidate360">
+							<img onclick="validClose360()" style="margin-top:-3px!important; width:2%!important" src="./- ToricCalculator_files/close.png">
+							Bu değer 0 ile 360 arasında olmalıdır!
+						</p>
+					</div>
+
+					<div class="row" id="messageK" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+						<p style="margin:1%!important" id="messageKK">
+							<img onclick="messageKClose()" style="margin-top:-3px!important; width:2%!important" src="./- ToricCalculator_files/close.png">
+							K1 değeri K2 değerinden büyük olmalıdır!
+						</p>
+					</div>
+
+					<div class="row" id="messageWarn" style="display: none; background-color :#FFF0F0; color:#ff2d2d;border-radius: 0.62rem;">
+						<p style="margin:1%!important" id="messageKK">
+							<img onclick="messageWarningClose()" style="margin-top:-3px!important; width:2%!important" src="./- ToricCalculator_files/close.png">
+							Lütfen eksik bilgileri doldurunuz!
+						</p>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	<div class="col-5" id="style-col5">
+		<div class="formStyle">
+			<div class="parent">
+				<div class="form-group styleGroup">
+					<p style="text-align: left;FONT-SIZE: 105%; padding: 4% 4% 0% 4%;color: #00226a;font-weight: bolder;">
+						<span id="leftItem" style="float:left; text-align:left;">TEMPORAL</span>
+						<span id="rightItem" style="float:right; text-align:right;">NAZAL</span>
+					</p>
+					<div style="color: #75b9df; font-size: 15px;" class="centertext">
+						GÖZ SEÇİMİ
+					</div>
+					<div class="row" style="margin-left:26%!important">
+						<div style="margin-left:2%" class="form-check">
+							<input onchange="eyeControl(&#39;right&#39;)" type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadios" checked="checked">
+							<label style="font-size: 86%;" class="form-check-label" for="materialUnchecked">Sağ Göz (OD)</label>
+						</div>
+						<div style="margin-left:2%" class="form-check">
+							<input onchange="eyeControl(&#39;left&#39;)" type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadios">
+							<label style="font-size: 86%;" class="form-check-label" for="materialChecked">Sol Göz (OS)</label>
+						</div>
+					</div>
+					<hr style="margin-left: 23%; margin-right: 19%;  border: 0.5px solid #75b9df;">
+				</div>
+				<div>
+					<img id="image7" class="image7" src="./- ToricCalculator_files/degree.png">
+					<img id="image8" class="image8" src="./- ToricCalculator_files/eye2.png">
+					<img style="display:none" id="image30" class="image30" src="./- ToricCalculator_files/lensTrinova.png">
+					<img style="display:none" id="image40" class="image40" src="./- ToricCalculator_files/lensUDM 1.png">
+					<img id="image5" style="display:none;" class="image5" src="./- ToricCalculator_files/redline.png">
+					<img style="display:none" id="image6" class="image6" src="./- ToricCalculator_files/greenline2.png">
+					<img style="display:none" id="image13" class="image13" src="./- ToricCalculator_files/resultLine.png">
+					<img id="image12" class="image12" src="./- ToricCalculator_files/yeni3.png" style="display: none;">
+					<button style="display:none" class="calculateText" id="calculateId">
+						<div id="calculateText">0</div>
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+		<div style="display:block; margin-top:3.3%;" id="resultPreview" class="formStyle">
+			<div style="border-radius:.42rem" class="card card-custom gutter-b">
+				<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+					<div class="card-title">
+						<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+							Results
+						</h3>
+					</div>
+				</div>
+				<div style="padding: 0rem 2.25rem;" class="card-body lighterColor tableStyle">
+					<table class="table table-separate" id="">
+						<thead>
+							<tr>
+								<th>&nbsp;#</th>
+								<th>IOL</th>
+								<th>Power</th>
+								<th>Axis</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input disabled="" type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>
+									<div class="placeholderLoading"></div>
+								</td>
+								<td>
+									<div class="placeholderLoading"></div>
+								</td>
+
+								<td><div class="placeholderLoading"></div></td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input class="stylecheck" disabled="" type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input disabled="" type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input disabled="" type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+								<td><div class="placeholderLoading"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div style="display:none; margin-top:3.3%;" id="results" class="formStyle">
+			<div style="border-radius:.42rem" class="card card-custom gutter-b">
+				<div class="card-header flex-wrap border-0  pb-0 darkerColor">
+					<div class="card-title">
+						<h3 style="font-size: 105%; color: #00226a; font-weight: bolder;" class="card-label text-uppercase">
+							Results
+						</h3>
+					</div>
+				</div>
+				<div style="padding: 0rem 2.25rem;" class="card-body lighterColor tableStyle">
+					<table class="table table-separate" id="">
+						<thead>
+							<tr>
+								<th>&nbsp;#</th>
+								<th>IOL</th>
+								<th>Power</th>
+								<th>Axis</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+
+								<td>130°</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="checkbox">
+										<input type="checkbox" name="Checkboxes1">
+										<span></span>
+									</label>
+								</td>
+								<td>18.00D</td>
+								<td>1.50D</td>
+								<td>130°</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+	</div>
+</div>
+<div class="popover_title" style="display: none">
+	<h6>Hesaplama Methodu</h6>
+	<small>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, reised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</small>
+</div>
+<div id="popover_content_wrapper" style="display: none">
+	<span id="cart_details"></span>
+	<div align="right">
+		<a class="btn-sm btn-primary close-desc testK">
+			OK
+		</a>
+	</div>
+</div>
+
+
+<div class="popover_title2" style="display: none">
+	<h6>Hesaplama Methodu</h6>
+	<small style="color: #00226a">
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, reised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</small>
+</div>
+<div id="popover_content_wrapper2" style="display: none">
+	<span id="cart_details"></span>
+	<div align="right">
+		<a class="btn-sm btn-primary close-desc2 testK">OK</a>
+	</div>
+</div>
+
+<div style="display:none;" id="snackbarSucces">Hesaplama işlemi başarılı bir şekilde gerçekleştirildi.</div>
+<div style="display:none;" id="snackbarFail">Beklenmeyen bir hata oluştu</div>
+
+
+
+<form action="https://toriccalculator.azurewebsites.net/Home/ExportToPDF" method="post"><input name="__RequestVerificationToken" type="hidden" value="CfDJ8FIRER-uLetLidKhFZyxRN_hdDeZ9tCfzHUug5QcAhQGVCluPrPNOaA0punKmFg-8_9hkLIFAY85vb8EnRzmC-ghcmc7bxkwZv9qtFyrCpNQeNGFMySKSWZEwPUhEwT-F-HmrQvnCfAzwPu3n3h2sko"></form>
+		</main>
+	</div>
+
+	<footer style="background-color:white;" class="border-top footer text-muted">
+		<div class="container">
+			Copyright © 2021  <a href="https://toriccalculator.azurewebsites.net/Home/Index">VSY Biotechnology</a>
+		</div>
+	</footer>
+
+
+
+	<script src="./- ToricCalculator_files/site.js.indir"></script>
+	<script src="./- ToricCalculator_files/popper.min.js.indir"></script>
+	<script src="./- ToricCalculator_files/snackbar.min.js.indir" crossorigin="anonymous"></script>
+	<script src="./- ToricCalculator_files/bootstrap-material-design.js.indir"></script>
+	<script src="./- ToricCalculator_files/bootstrap-select.min.js.indir"></script>
+	<script src="./- ToricCalculator_files/anchor.min.js.indir"></script>
+	<script src="./- ToricCalculator_files/clipboard.min.js.indir"></script>
+	<script src="./- ToricCalculator_files/holder.min.js.indir"></script>
+	<script src="./- ToricCalculator_files/application.js.indir"></script>
+	<script src="./- ToricCalculator_files/ie10-viewport-bug-workaround.js.indir"></script>
+	<script src="./- ToricCalculator_files/ie-emulation-modes-warning.js.indir"></script>
+	<script src="./- ToricCalculator_files/jspdf.min.js.indir"></script>
+
+	<script>
+
+		function RefreshPage() {
+			var key = getCookie("vsyKey");
+			var culture = getCookie("vsyLanguage");
+			var newUrl = window.location.origin + window.location.pathname + "?key=" + key + "&culture=" + culture;
+			window.location.href = newUrl;
+			return false;
+		}
+
+		function setCookie(cname, cvalue, exdays) {
+			var encodded = encodeURIComponent(cvalue);
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			var expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + encodded + ";path=/";
+			if (cname == "vsyModel" || cname == "vsyLanguage" || cname == "vsyApprove") {
+				
+				if (cname == "vsyLanguage") {
+				RefreshPage();	
+
+				}
+				else {
+					location.reload();
+				}
+				
+				
+			}
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					var cval = c.substring(name.length, c.length);
+					var decoded = decodeURIComponent(cval);
+					return decoded;
+				}
+			}
+			return "";
+		}
+
+		function checkCookie() {
+			var user = getCookie("username");
+			if (user != "") {
+				alert("Welcome again " + user);
+			} else {
+				user = prompt("Please enter your name:", "");
+				if (user != "" && user != null) {
+					setCookie("username", user, 365);
+				}
+			}
+		}
+
+		$(function () {
+			if (getCookie("vsyLanguage") == "tr-TR") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "TR";
+			}
+			else if (getCookie("vsyLanguage") == "es-ES") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "ES";
+			}
+			else if (getCookie("vsyLanguage") == "fr-CA") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "FR";
+			}
+			else if (getCookie("vsyLanguage") == "de-DE") {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "DE";
+			}
+			else {
+				document.getElementById("navbarDropdownMenuLink78").textContent = "EN";
+			}
+
+		});
+	</script>
+
+
+<div id="snackbar-container/"></div></body></html>
